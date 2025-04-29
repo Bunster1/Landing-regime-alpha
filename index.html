@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regime Alpha – Market Regime Detection</title>
+  <title>Regime Alpha – Master Market Shifts | Regime Labs LLC</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,44 +13,59 @@
       padding: 0;
     }
     header {
-      background: #1e293b;
-      padding: 2rem;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      padding: 5rem 2rem;
       text-align: center;
+    }
+    header img {
+      margin-bottom: 1.5rem;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3.5rem;
+      color: #38bdf8;
     }
-    header p {
-      font-size: 1.1rem;
+    header p.tagline {
+      font-size: 1.3rem;
       color: #94a3b8;
       margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    header p.subtext {
+      font-size: 1.1rem;
+      color: #cbd5e1;
     }
     .section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1.5rem;
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 2rem;
     }
     .section h2 {
       color: #38bdf8;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    .section p, .section ul {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+    }
+    ul li {
+      margin-bottom: 1rem;
     }
     .cta {
       text-align: center;
-      margin-top: 3rem;
+      margin-top: 5rem;
     }
     .cta a {
       background: #38bdf8;
       color: #0f172a;
       text-decoration: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 8px;
+      padding: 1.4rem 2.8rem;
+      font-size: 1.5rem;
+      border-radius: 12px;
       font-weight: bold;
+      transition: background 0.3s;
     }
     .cta a:hover {
       background: #0ea5e9;
@@ -58,65 +73,71 @@
     footer {
       background: #1e293b;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
       color: #94a3b8;
-      font-size: 0.9rem;
+      font-size: 1rem;
+    }
+    .logo img {
+      max-width: 140px;
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="logo">
+      <img src="/assets/logo-placeholder.png" alt="Regime Labs Logo" />
+    </div>
     <h1>Regime Alpha</h1>
-    <p>Market Regime Detection for Smarter Trading and Risk Decisions</p>
+    <p class="tagline">Master Market Shifts</p>
+    <p class="subtext">Intelligent Regime Detection | Powered by Regime Labs LLC</p>
   </header>
 
   <div class="section">
-    <h2>🔍 What We Do</h2>
+    <h2>🚀 About Regime Alpha</h2>
     <p>
-      Regime Alpha is an advanced analytics platform that detects hidden structural shifts in financial markets.
-      Using cutting-edge statistical models and machine learning techniques, we identify when markets change behavior — known as <strong>market regimes</strong> — and explain why these changes occur.
+      Developed by <strong>Regime Labs LLC</strong>, Regime Alpha is the new standard in dynamic market regime detection. We uncover hidden shifts that traditional models miss — helping investors, portfolio managers, and analysts adapt and outperform.
     </p>
   </div>
 
   <div class="section">
-    <h2>📈 Why Regimes Matter</h2>
+    <h2>📊 Why Market Regimes Matter</h2>
     <p>
-      Markets are not static — they evolve through periods of growth, volatility, crisis, and recovery. Traditional strategies assume constant risk and return, but this is far from reality. <strong>Market regimes</strong> affect everything: asset performance, correlations, volatility, liquidity, and macro sensitivity.
+      Markets are not random walks. They transition through regimes — expansions, contractions, volatility spikes, and liquidity droughts. Identifying these transitions:
     </p>
+    <ul>
+      <li>Improves trading and allocation strategies</li>
+      <li>Enhances risk-adjusted performance</li>
+      <li>Detects early signals of instability or opportunity</li>
+      <li>Enables smarter macro and sector rotation</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧠 What Sets Us Apart</h2>
+    <ul>
+      <li>Seamless macroeconomic integration (FRED API)</li>
+      <li>Quantitative depth: PCA, GMM, Bayesian GMM, HMM, and Kalman smoothing</li>
+      <li>Interactive regime visualizations and eigendrift analytics</li>
+      <li>LLM-enhanced regime explanations for transparency and insight</li>
+    </ul>
     <p>
-      Knowing the current regime — and predicting shifts — is essential for:
-      <ul>
-        <li>📊 Adapting trading strategies</li>
-        <li>💼 Portfolio optimization and rebalancing</li>
-        <li>🛡️ Managing risk exposure</li>
-        <li>📉 Anticipating drawdowns and volatility spikes</li>
-      </ul>
+      Future upgrades include real-time regime monitoring, predictive analytics, and automated alerts.
     </p>
   </div>
 
   <div class="section">
-    <h2>🧠 What Makes Regime Alpha Unique</h2>
+    <h2>🖼️ Visual Insights</h2>
     <p>
-      Regime Alpha goes beyond price-based clustering. We integrate <strong>macroeconomic variables</strong>, <strong>PCA</strong> for dimensionality reduction, and <strong>LLM-powered explanations</strong> so you not only detect shifts — you understand them.
-    </p>
-    <p>
-      Our models include:
-      <ul>
-        <li>Gaussian Mixture Models (GMM)</li>
-        <li>Bayesian GMM</li>
-        <li>Hidden Markov Models (HMM)</li>
-        <li>Kalman Filter Smoothing</li>
-      </ul>
+      (Coming soon: Explore screenshots of PCA clustering, regime timelines, volatility bubbles, and eigendrift plots generated by Regime Alpha.)
     </p>
   </div>
 
   <div class="cta">
-    <a href="https://regime-alpha.onrender.com" target="_blank">🚀 Launch the App</a>
+    <a href="https://regime-alpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
   </div>
 
   <footer>
-    &copy; 2025 Regime Alpha | Built for traders, quants, and portfolio managers
+    &copy; 2025 Regime Labs LLC. All rights reserved.
   </footer>
 </body>
 </html>
-
