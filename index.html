@@ -3,40 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regime Alpha – Master Market Shifts | Regime Labs LLC</title>
+  <title>Regime Alpha – Institutional Regime Intelligence | Regime Labs LLC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #0f172a, #1e293b);
-      color: #f8fafc;
+      background: linear-gradient(to right, #0e0e10, #1a1a1d);
+      color: #e5e7eb;
       margin: 0;
       padding: 0;
     }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #0f172a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    nav h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      color: #4ade80;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+    nav ul li a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffffff;
+    }
     header {
-      padding: 6rem 2rem 4rem;
+      padding: 5rem 2rem 3rem;
       text-align: center;
     }
     header img {
-      width: 160px;
-      margin-bottom: 1.5rem;
+      width: 180px;
+      margin-bottom: 1.2rem;
     }
     header h1 {
       margin: 0;
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       font-family: 'Orbitron', sans-serif;
       color: #4ade80;
     }
     header p.tagline {
-      font-size: 1.4rem;
-      color: #94a3b8;
+      font-size: 1.3rem;
+      color: #a1a1aa;
       margin-top: 0.5rem;
     }
     header p.subtext {
-      font-size: 1.1rem;
-      color: #cbd5e1;
+      font-size: 1rem;
+      color: #d1d5db;
     }
     .section {
       max-width: 1100px;
@@ -50,7 +81,7 @@
       font-family: 'Orbitron', sans-serif;
     }
     .section p, .section ul {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.8;
       color: #e2e8f0;
     }
@@ -59,7 +90,7 @@
     }
     .cta {
       text-align: center;
-      margin-top: 5rem;
+      margin: 5rem 0;
     }
     .cta a {
       background: #4ade80;
@@ -69,83 +100,81 @@
       font-size: 1.5rem;
       border-radius: 14px;
       font-weight: bold;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
       font-family: 'Orbitron', sans-serif;
-      box-shadow: 0 0 20px #4ade80;
+      box-shadow: 0 0 18px #4ade80;
     }
     .cta a:hover {
       background: #22c55e;
-      box-shadow: 0 0 30px #22c55e;
+      box-shadow: 0 0 26px #22c55e;
     }
     footer {
-      background: #1e293b;
+      background: #1f2937;
       text-align: center;
       padding: 2rem 1rem;
       color: #94a3b8;
-      font-size: 1rem;
-    }
-    .logo img {
-      max-width: 160px;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://raw.githubusercontent.com/Bunster1/assets/main/regimealpha-symbol.png" alt="Regime Labs Logo" />
-    </div>
+  <nav>
     <h1>Regime Alpha</h1>
-    <p class="tagline">Precision Intelligence for Market Shifts</p>
-    <p class="subtext">Quantitative Analytics | Powered by <strong>Regime Labs LLC</strong></p>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#models">Models</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <img src="https://raw.githubusercontent.com/Bunster1/assets/main/regimealpha-symbol.png" alt="Regime Labs Logo" />
+    <h1>Regime Alpha</h1>
+    <p class="tagline">Advanced Intelligence for Market Regimes</p>
+    <p class="subtext">Built by <strong>Regime Labs LLC</strong> for hedge funds, quants & institutional research</p>
   </header>
 
-  <div class="section">
-    <h2>📡 What is Regime Alpha?</h2>
+  <div class="section" id="about">
+    <h2>🔬 What is Regime Alpha?</h2>
     <p>
-      <strong>Regime Alpha</strong> is an advanced analytical platform for detecting structural changes in financial markets. Developed by <strong>Regime Labs LLC</strong>, our tool leverages AI, macroeconomic data, and advanced mathematical modeling to forecast market regimes with clarity and conviction.
+      <strong>Regime Alpha</strong> is a next-generation market structure engine that uses machine learning and economic signal processing to detect and classify market regimes. Designed to augment existing quant pipelines or serve as a standalone tactical insight engine.
     </p>
   </div>
 
-  <div class="section">
-    <h2>🌐 Why Market Regimes Matter</h2>
-    <p>
-      Financial markets move in regimes — not randomness. Recognizing shifts between these regimes helps:
-    </p>
+  <div class="section" id="models">
+    <h2>🧠 Core Capabilities</h2>
     <ul>
-      <li>Navigate economic inflection points confidently</li>
-      <li>Optimize portfolio allocation and timing</li>
-      <li>Anticipate volatility and protect capital</li>
-      <li>Uncover hidden patterns missed by conventional tools</li>
+      <li>Multimodel regime inference: GMM, Bayesian GMM, HMM</li>
+      <li>Kalman-based smoothing & PCA eigendrift monitoring</li>
+      <li>Integrated macroeconomic context from FRED</li>
+      <li>GPT-4 co-pilot for narrative overlays and regime summaries</li>
+      <li>Interactive dashboards for clustering, backtests, and timeline mapping</li>
     </ul>
+    <p>Perfect for macro signal generation, stress testing, and alpha capture.</p>
   </div>
 
-  <div class="section">
-    <h2>🧠 Key Features</h2>
+  <div class="section" id="pricing">
+    <h2>💼 Pricing Tiers</h2>
     <ul>
-      <li>Unsupervised regime segmentation using GMM, Bayesian GMM, and HMM</li>
-      <li>Kalman smoothing + PCA eigendrift tracking</li>
-      <li>FRED-based macroeconomic enrichment</li>
-      <li>GPT-4 co-pilot for human-readable regime explanations</li>
-      <li>Interactive regime clustering, transition timelines, and backtests</li>
+      <li><strong>Free Tier:</strong> Basic access to historical regime timelines & LLM summaries</li>
+      <li><strong>Pro Tier:</strong> Full model customization, backtests, data upload</li>
+      <li><strong>Institutional Tier:</strong> API access, dashboard sharing, research support</li>
     </ul>
-    <p>
-      Built for institutional-grade research, strategy development, and macro signal generation.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>📸 Sneak Preview</h2>
-    <p>
-      (Coming soon: Live previews of PCA regime clustering, transition heatmaps, volatility regimes, and eigendrift plots.)
-    </p>
+    <p>Contact us for bespoke integration into your research stack.</p>
   </div>
 
   <div class="cta">
-    <a href="https://regimealpha.onrender.com" target="_blank">Launch Regime Alpha</a>
+    <a href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>📨 Contact</h2>
+    <p>For partnerships, questions, or investor demos, contact <strong>Joseph Bunster</strong> at <a style="color:#4ade80" href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a>.</p>
   </div>
 
   <footer>
-    &copy; 2025 <strong>Regime Labs LLC</strong>. All rights reserved.
+    &copy; 2025 <strong>Regime Labs LLC</strong> • All rights reserved
   </footer>
 </body>
 </html>
