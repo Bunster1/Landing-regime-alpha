@@ -158,6 +158,84 @@
       color: var(--text-muted);
       font-size: 0.95rem;
     }
+
+    .hero {
+  background-color: #101519;
+  padding: 6rem 2rem 4rem;
+    }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  .hero-content .text {
+    flex: 1 1 480px;
+  }
+
+  .hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: #4ade80;
+    margin-bottom: 1rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.8rem;
+    color: #cbd5e1;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero .subtext {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+  }
+
+  .hero .cta-button {
+    background: #4ade80;
+    color: #0f172a;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #4ade80;
+    display: inline-block;
+  }
+
+  .hero .cta-button:hover {
+    background: #22c55e;
+    box-shadow: 0 0 30px #22c55e;
+  }
+
+  .hero-content .image img {
+    max-width: 380px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+
+    
   </style>
 </head>
 <body>
@@ -171,12 +249,20 @@
     </ul>
   </nav>
 
-  <header>
-    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" />
-    <h1>Regime Alpha</h1>
-    <p class="tagline">Advanced Intelligence for Market Regimes</p>
-    <p class="subtext">Built by <strong>Regime Labs LLC</strong> for hedge funds, quants & institutional research</p>
-  </header>
+  <header class="hero">
+  <div class="hero-content">
+    <div class="text">
+      <h1>Regime Alpha</h1>
+      <p class="tagline">Advanced Intelligence for Market Regimes</p>
+      <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for innovative hedge funds, quantitative leaders, and data-driven institutions.</p>
+      <a class="cta-button" href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
+    </div>
+    <div class="image">
+      <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha UI Preview" />
+    </div>
+  </div>
+</header>
+
 
   <section class="section" id="about">
     <h2>🔬 What is Regime Alpha?</h2>
