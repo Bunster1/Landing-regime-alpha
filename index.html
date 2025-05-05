@@ -8,22 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #4ade80;
-      --bg: #101519;
-      --text-light: #e5e7eb;
-      --text-muted: #94a3b8;
-      --accent: #22c55e;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text-light);
-      margin: 0;
-      padding: 0;
-    }
-
+  body {
+  font-family: 'Inter', sans-serif;
+  background-color: #101519;
+  color: #e5e7eb;
+  margin: 0;
+  padding: 0;
+  }
+    
     nav {
       display: flex;
       justify-content: space-between;
@@ -38,7 +30,7 @@
     nav h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.6rem;
-      color: var(--primary);
+      color: #4ade80;
     }
     nav ul {
       list-style: none;
@@ -47,46 +39,46 @@
       margin: 0;
     }
     nav ul li a {
-      color: var(--text-muted);
+      color: #94a3b8;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: white;
+      color: #ffffff;
     }
-
     header {
       padding: 5rem 2rem 3rem;
       text-align: center;
     }
     header img {
-      width: 280px;
+      width: 180px;
       margin-bottom: 1.2rem;
     }
     header h1 {
       margin: 0;
-      font-size: 3.2rem;
+      font-size: 3.6rem;
       font-family: 'Orbitron', sans-serif;
-      color: var(--primary);
+      color: #4ade80;
     }
-    .tagline {
+    header p.tagline {
       font-size: 1.3rem;
       color: #a1a1aa;
       margin-top: 0.5rem;
     }
-    .subtext {
+    header p.subtext {
       font-size: 1rem;
       color: #d1d5db;
     }
-
     .section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: transparent; 
     }
+
     .section h2 {
-      color: var(--primary);
+      color: #4ade80;
       font-size: 2rem;
       margin-bottom: 1rem;
       font-family: 'Orbitron', sans-serif;
@@ -96,146 +88,36 @@
       line-height: 1.8;
       color: #e2e8f0;
     }
-    .section ul li {
+    ul li {
       margin-bottom: 1rem;
     }
-
     .cta {
       text-align: center;
       margin: 5rem 0;
     }
     .cta a {
-      background: var(--primary);
+      background: #4ade80;
       color: #0f172a;
       text-decoration: none;
       padding: 1.2rem 2.5rem;
       font-size: 1.5rem;
       border-radius: 14px;
       font-weight: bold;
-      font-family: 'Orbitron', sans-serif;
-      box-shadow: 0 0 18px var(--primary);
       transition: background 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: 0 0 18px #4ade80;
     }
     .cta a:hover {
-      background: var(--accent);
-      box-shadow: 0 0 26px var(--accent);
+      background: #22c55e;
+      box-shadow: 0 0 26px #22c55e;
     }
-
-    .logo-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      padding: 2rem 1rem;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .logo-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 320px;
-      transition: transform 0.3s ease;
-    }
-    .logo-item:hover {
-      transform: scale(1.05);
-    }
-    .logo-item img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 2px 10px rgba(0,0,0,0.2));
-    }
-    .logo-caption {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: #9ca3af;
-    }
-
     footer {
       background: #1f2937;
       text-align: center;
       padding: 2rem 1rem;
-      color: var(--text-muted);
+      color: #94a3b8;
       font-size: 0.95rem;
     }
-
-    .hero {
-  background-color: #101519;
-  padding: 6rem 2rem 4rem;
-    }
-
-  .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 3rem;
-    animation: fadeIn 1.2s ease-in-out;
-  }
-
-  .hero-content .text {
-    flex: 1 1 480px;
-  }
-
-  .hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;
-    color: #4ade80;
-    margin-bottom: 1rem;
-  }
-
-  .hero .tagline {
-    font-size: 1.8rem;
-    color: #cbd5e1;
-    margin-bottom: 0.8rem;
-  }
-
-  .hero .subtext {
-    font-size: 1.2rem;
-    color: #94a3b8;
-    margin-bottom: 2rem;
-  }
-
-  .hero .cta-button {
-    background: #4ade80;
-    color: #0f172a;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px #4ade80;
-    display: inline-block;
-  }
-
-  .hero .cta-button:hover {
-    background: #22c55e;
-    box-shadow: 0 0 30px #22c55e;
-  }
-
-  .hero-content .image img {
-    max-width: 380px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    animation: float 5s ease-in-out infinite;
-  }
-
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-
-    
   </style>
 </head>
 <body>
@@ -249,69 +131,117 @@
     </ul>
   </nav>
 
-  <header class="hero">
-  <div class="hero-content">
-    <div class="text">
-      <h1>Regime Alpha</h1>
-      <p class="tagline">Advanced Intelligence for Market Regimes</p>
-      <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for innovative hedge funds, quantitative leaders, and data-driven institutions.</p>
-      <a class="cta-button" href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
-    </div>
-    <div class="image">
-      <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha UI Preview" />
-    </div>
-  </div>
-</header>
+  <header>
+    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" style="width: 350px;" />
+    <p class="tagline">Advanced Intelligence for Market Regimes</p>
+    <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for innovative hedge funds, quantitative leaders, and data-driven institutions.</p>
+  </header>
 
-
-  <section class="section" id="about">
+  <div class="section" id="about">
     <h2>🔬 What is Regime Alpha?</h2>
-    <p><strong>Regime Alpha</strong> is an institutional-grade analytics platform designed to detect, classify, and interpret evolving market regimes. It leverages probabilistic modeling, macro context, and machine learning to generate actionable intelligence for regime-aware trading, risk modeling, and strategy design.</p>
-  </section>
+    <p>
+      <strong>Regime Alpha</strong> is an institutional-grade analytics platform purpose-built to detect, classify, and interpret evolving market regimes. Leveraging a fusion of probabilistic modeling, macroeconomic context, and machine learning, it transforms noisy market data into structured, actionable insights that augment risk models, enhance allocation decisions, and contextualize trading signals. Unlike generic signal engines, Regime Alpha is not designed to forecast alpha directly — it characterizes the environments in which signals operate, enabling regime-aware strategy design, position sizing, and portfolio construction. Built to integrate flexibly into existing modeling stacks via a modular design.
+    </p>
+  </div>
 
-  <section class="section" id="models">
+  <div class="section" id="models">
     <h2>🧠 Core Capabilities</h2>
+    <strong>At its core</strong> Regime Alpha identifies latent structural states in financial time series — periods where return distributions, volatility, and cross-asset relationships exhibit persistent but distinct patterns. These regimes are revealed via a modular engine supporting:
     <ul>
-      <li>Gaussian Mixture Models, Bayesian GMM, Hidden Markov Models</li>
-      <li>PCA dimensionality reduction and eigendrift detection</li>
-      <li>Integrated macroeconomic variables via FRED</li>
-      <li>GPT-4 powered co-pilot for regime summaries</li>
-      <li>Backtests, timeline plots, PCA space clustering</li>
+      <li>Multimodel regime inference: GMM, Bayesian GMM, HMM</li>
+      <li>Kalman-based smoothing & PCA eigendrift monitoring</li>
+      <li>Integrated macroeconomic context from FRED</li>
+      <li>GPT-4 co-pilot for narrative overlays and regime summaries</li>
+      <li>Interactive dashboards for clustering, backtests, and timeline mapping</li>
     </ul>
-  </section>
+    <p>Perfect for macro signal generation, stress testing, and alpha capture.</p>
+  </div>
 
-  <section class="section" id="pricing">
+  <div class="section" id="pricing">
     <h2>💼 Access Tiers</h2>
     <ul>
-      <li><strong>Standard:</strong> Basic historical regimes & LLM summaries</li>
-      <li><strong>Pro:</strong> Full model customization, backtesting, uploads</li>
-      <li><strong>Institutional:</strong> API access, dedicated support, team dashboards</li>
+      <li><strong>Standard Tier:</strong> Basic access to historical regime timelines & LLM summaries</li>
+      <li><strong>Pro Tier:</strong> Full model customization, backtests, data upload</li>
+      <li><strong>Institutional Tier:</strong> API access, dashboard sharing, research support</li>
     </ul>
-    <p>Custom pricing available for funds and enterprise integration.</p>
-  </section>
+    <p>Contact us for bespoke integration into your research stack.</p>
+  </div>
 
   <div class="cta">
-    <a href="https://regimealpha.onrender.com" target="_blank">🚀 Launch App</a>
+    <a href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
   </div>
 
-  <section class="section" id="contact">
+  <div class="section" id="contact">
     <h2>📨 Contact</h2>
-    <p>For demos, enterprise quotes, or partnerships, contact <strong>Joseph Bunster</strong> at <a style="color: var(--primary)" href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a>.</p>
-  </section>
-
-  <div class="logo-row">
-    <div class="logo-item">
-      <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" />
-      <div class="logo-caption">Regime Alpha</div>
-    </div>
-    <div class="logo-item">
-      <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/regimeLabsLLC%20Logo2.png" alt="Regime Labs LLC Logo" />
-      <div class="logo-caption">Regime Labs LLC</div>
-    </div>
+    <p>For partnerships, questions, or investor demos, contact <strong>Joseph Bunster</strong> at <a style="color:#4ade80" href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a>.</p>
   </div>
 
-  <footer>
-    <p>&copy; 2025 <strong>Regime Labs LLC</strong> • All rights reserved</p>
-  </footer>
-</body>
-</html>
+
+<style>
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 320px;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-item:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-item img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.2));
+    transition: filter 0.3s ease;
+  }
+
+  .logo-caption {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #9ca3af;
+    font-family: 'Inter', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .logo-item img {
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    .logo-caption {
+      color: #d1d5db;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo-item img {
+      max-width: 240px;
+    }
+  }
+</style>
+
+<div class="logo-row">
+  <div class="logo-item">
+    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" />
+    <div class="logo-caption">Regime Alpha</div>
+  </div>
+  <div class="logo-item">
+    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/regimeLabsLLC%20Logo2.png" alt="Regime Labs LLC Logo" />
+    <div class="logo-caption">Regime Labs LLC</div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 <strong>Regime Labs LLC</strong> • All rights reserved</p>
+</footer>
