@@ -119,6 +119,77 @@
       font-size: 0.95rem;
     }
   </style>
+
+  <style>
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+.hero-text h1 {
+  font-size: 3.6rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #4ade80;
+  margin-bottom: 1rem;
+}
+.hero-text .tagline {
+  font-size: 1.4rem;
+  color: #a1a1aa;
+}
+.hero-text .subtext {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.hero-btn {
+  display: inline-block;
+  background-color: #4ade80;
+  color: #0f172a;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 18px #4ade80;
+}
+.hero-btn:hover {
+  background: #22c55e;
+  box-shadow: 0 0 26px #22c55e;
+}
+.hero-image {
+  flex: 1;
+  min-width: 320px;
+  text-align: center;
+}
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    margin-top: 2rem;
+  }
+}
+</style>
+
+  
 </head>
 <body>
   <nav>
@@ -131,11 +202,18 @@
     </ul>
   </nav>
 
-  <header>
-    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" style="width: 350px;" />
+  <section class="hero">
+  <div class="hero-text">
+    <h1>Regime Alpha</h1>
     <p class="tagline">Advanced Intelligence for Market Regimes</p>
-    <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for innovative hedge funds, quantitative leaders, and data-driven institutions.</p>
-  </header>
+    <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for hedge funds, quants, and macro strategists who demand clarity in chaos.</p>
+    <a class="hero-btn" href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/bubble%20image.png" alt="Regime Alpha Dashboard Preview" />
+  </div>
+</section>
+
 
   <div class="section" id="about">
     <h2>🔬 What is Regime Alpha?</h2>
