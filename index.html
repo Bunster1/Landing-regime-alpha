@@ -137,21 +137,6 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
-<div class="math-block">
-  <h3>💡 Why Regime Alpha Is Indispensable</h3>
-  <ul>
-    <li><strong>📈 Auto-Updating Regime Alerts:</strong> Get notified when the probability of a regime switch crosses a threshold — anticipate turning points.</li>
-    <li><strong>📊 Portfolio Overlay Mode:</strong> Upload a portfolio and instantly see its exposures across current and historical regimes.</li>
-    <li><strong>🧠 LLM Copilot Summaries:</strong> AI-generated interpretations for each regime — no quant PhD required.</li>
-    <li><strong>🛠️ Custom Strategy Backtests:</strong> Simulate rules like “Long in regime 2, exit in regime 3 with >75% probability” over decades of history.</li>
-    <li><strong>🌐 Live Macroeconomic Feeds:</strong> Use daily-updated rates, spreads, volatility surfaces, and prediction markets to inform transitions.</li>
-    <li><strong>🧬 Modular + Explainable:</strong> Use GMM for fast clustering, HMM for persistence, or Hybrid HMM for causality-aware transitions — all GPU-enabled.</li>
-    <li><strong>📂 Historical Analog Explorer:</strong> Find similar regime trajectories from the past to inform future expectations and scenario planning.</li>
-  </ul>
-</div>
-
-
   
 <body>
   <nav>
@@ -255,11 +240,11 @@
   </table>
 
     <details style="margin-top: 2rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
-  <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #14532d; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview (click to expand)</summary>
-
-  <div class="section">
-    <div class="math-block">
-      <h3>📀 Gaussian Mixture Model (GMM)</h3>
+      <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #14532d; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview (click to expand)</summary>
+    
+      <div class="section">
+        <details class="math-block" open>
+      <summary><h3>📀 Gaussian Mixture Model (GMM)</h3></summary>
       <p>The GMM assumes observations are generated from a mixture of Gaussian distributions, each representing a hidden regime:</p>
       \[
         p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
@@ -269,15 +254,17 @@
         <li>\( \pi_k \): mixture weight of regime \( k \)</li>
         <li>\( \mu_k, \Sigma_k \): mean and covariance of regime \( k \)</li>
       </ul>
-    </div>
-    <div class="math-block">
-      <h3>📀 Bayesian GMM (BGMM)</h3>
+    </details>
+    
+    <details class="math-block">
+      <summary><h3>📀 Bayesian GMM (BGMM)</h3></summary>
       <p>A Bayesian extension of GMM that treats mixture weights and component parameters as random variables:</p>
       \[
         \pi \sim \text{Dir}(\alpha), \quad \mu_k, \Sigma_k \sim \text{NIW}(\lambda)
       \]
       <p>This provides uncertainty quantification and automatic complexity control.</p>
-    </div>
+    </details>
+
     <div class="math-block">
       <h3>📀 Hybrid Hidden Markov Model (HMM)</h3>
       <p>This model separates transition probabilities from state emissions using distinct data types:</p>
@@ -380,45 +367,19 @@
   <p>All models are GPU-ready and compatible with backtesting logic, dashboard overlays, and co-pilot interpretation.</p>
 </div>
 
-<div style="margin-top: 2rem; font-size: 1rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
-  <h3 style="margin-top: 0; color: #16a34a; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview</h3>
-  <p>This model separates transition logic from regime identity:</p>
+
+<div class="math-block">
+  <h3>💡 Why Regime Alpha Is Indispensable</h3>
   <ul>
-    <li><strong>Transitions</strong> use forward-looking variables like option-implied vol, FedWatch, or prediction markets.</li>
-    <li><strong>Regime emissions</strong> use realized return distributions and macro features.</li>
+    <li><strong>📈 Auto-Updating Regime Alerts:</strong> Get notified when the probability of a regime switch crosses a threshold — anticipate turning points.</li>
+    <li><strong>📊 Portfolio Overlay Mode:</strong> Upload a portfolio and instantly see its exposures across current and historical regimes.</li>
+    <li><strong>🧠 LLM Copilot Summaries:</strong> AI-generated interpretations for each regime — no quant PhD required.</li>
+    <li><strong>🛠️ Custom Strategy Backtests:</strong> Simulate rules like “Long in regime 2, exit in regime 3 with >75% probability” over decades of history.</li>
+    <li><strong>🌐 Live Macroeconomic Feeds:</strong> Use daily-updated rates, spreads, volatility surfaces, and prediction markets to inform transitions.</li>
+    <li><strong>🧬 Modular + Explainable:</strong> Use GMM for fast clustering, HMM for persistence, or Hybrid HMM for causality-aware transitions — all GPU-enabled.</li>
+    <li><strong>📂 Historical Analog Explorer:</strong> Find similar regime trajectories from the past to inform future expectations and scenario planning.</li>
   </ul>
-  <p><em>Mathematical structure:</em></p>
-  <p style="font-family: monospace;">
-    P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>) → transition matrix<br>
-    yₜ | zₜ = k ~ 𝓝(μ<sub>k</sub>, Σ<sub>k</sub>) → regime-specific distributions<br>
-  </p>
-  <p style="font-size: 0.95rem;">
-    Overall joint probability:
-    <br>
-    <span style="font-family: monospace;">
-      P(z₁:T, y₁:T) = ∏ₜ P(yₜ | zₜ) · P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>)
-    </span>
-  </p>
-  <p>This enables dynamic, interpretable, and probabilistic regime detection with GPU support via RunPod. Full integration with LLM summaries, PCA diagnostics, and strategy overlays coming soon.</p>
 </div>
-
-  
-  <div style="margin-top: 2rem; padding: 1rem 1.5rem; background: #f9fafb; border-left: 5px solid #16a34a; font-size: 1rem;">
-  <h3 style="margin-top: 0; font-family: 'Orbitron', sans-serif; color: #16a34a;">📐 Conditional Logistic Transitions (New Hybrid HMM)</h3>
-  <p>Unlike traditional HMMs with fixed transitions, our hybrid model dynamically adapts based on macro signals. This improves realism in financial markets where regime shifts often hinge on forward-looking data like futures or options.</p>
-  <ul>
-    <li>Dynamic transition matrix: adjusts based on macro input \(\mathbf{x}_t\)</li>
-    <li>Uses softmax over weighted macro features to guide regime switching</li>
-    <li>Ideal for modeling anticipation-driven environments (e.g., rate expectations)</li>
-  </ul>
-  <p style="font-family: monospace; font-size: 0.95rem; margin-top: 1rem;">
-    \( \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t) = \frac{\exp(\mathbf{w}_{ij}^T \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^T \mathbf{x}_t + b_{ik})} \)
-  </p>
-  <p>This lets Regime Alpha "listen" to markets like a skilled macro PM — and adjust regime probabilities accordingly.</p>
-</div>
-
-
-
 
   <div class="section" id="pricing">
   <h2>💼 Access Tiers</h2>
