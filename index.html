@@ -278,53 +278,6 @@
     </ul>
     <p>This framework enables adaptive regime tracking, interpretable outputs, and GPU-accelerated inference.</p>
   </div>
-
-      <!-- ✅ Paste the full block here -->
-<div class="section" id="math-hybrid-hmm">
-  <h2>📐 Hybrid HMM – Full Mathematical Framework</h2>
-  <p>This advanced model decouples transition dynamics from observed regime states using a two-part structure:</p>
-  <ul>
-    <li><strong>Implied (forward-looking) features</strong> drive state transition probabilities</li>
-    <li><strong>Realized (historical) data</strong> define regime-specific distributions</li>
-  </ul>
-  <p><strong>Mathematical structure:</strong></p>
-
-  <p><strong>1. Transition function (logistic-softmax form):</strong></p>
-  <p>
-    \[
-      \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t^{\text{implied}}) =
-      \frac{\exp(\mathbf{w}_{ij}^\top \mathbf{x}_t + b_{ij})}
-           {\sum_k \exp(\mathbf{w}_{ik}^\top \mathbf{x}_t + b_{ik})}
-    \]
-  </p>
-
-  <p><strong>2. Regime-specific emission:</strong></p>
-  <p>
-    \[
-      y_t \mid z_t = k \sim \mathcal{N}(\mu_k, \Sigma_k)
-    \]
-  </p>
-
-  <p><strong>3. Joint probability of the sequence:</strong></p>
-  <p>
-    \[
-      \mathbb{P}(z_{1:T}, y_{1:T}) =
-      \prod_{t=1}^{T} \mathbb{P}(y_t \mid z_t) \cdot \mathbb{P}(z_t \mid z_{t-1}, \mathbf{x}_t^{\text{implied}})
-    \]
-  </p>
-
-  <h3 style="margin-top: 2rem;">📘 Variable Definitions</h3>
-  <ul>
-    <li>\( z_t \): hidden regime at time \( t \)</li>
-    <li>\( y_t \): observed market variable (e.g., returns, vol, spread)</li>
-    <li>\( \mathbf{x}_t^{\text{implied}} \): macro/market signals (e.g. Fed expectations, vol surface)</li>
-    <li>\( \mu_k, \Sigma_k \): mean and covariance for regime \( k \)</li>
-    <li>\( \mathbf{w}_{ij}, b_{ij} \): learned logistic regression weights for transition from state \( i \rightarrow j \)</li>
-  </ul>
-
-  <p>This formulation allows your model to respond dynamically to macro shifts, unlike fixed HMMs. Powered by GPU backend for scalable performance.</p>
-</div>
-
       
 </details>
 
