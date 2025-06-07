@@ -4,24 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Regime Alpha – Institutional Regime Intelligence | Regime Labs LLC</title>
+   <!-- ✅ Add this line here -->
+  <link rel="icon" href="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-  body {
-  font-family: 'Inter', sans-serif;
-  background-color: #101519;
-  color: #e5e7eb;
-  margin: 0;
-  padding: 0;
+  body, h1, h2, p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+  }
+
     
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #0f172a;
+      background-color: #ffffff;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -30,7 +38,7 @@
     nav h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.6rem;
-      color: #4ade80;
+      color: #16a34a;
     }
     nav ul {
       list-style: none;
@@ -39,18 +47,20 @@
       margin: 0;
     }
     nav ul li a {
-      color: #94a3b8;
+      color: #1f2937;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #ffffff;
+      color: #15803d;
     }
     header {
       padding: 5rem 2rem 3rem;
       text-align: center;
+      background-color: #f3f4f6; /* was no background */
     }
+
     header img {
       width: 180px;
       margin-bottom: 1.2rem;
@@ -59,7 +69,7 @@
       margin: 0;
       font-size: 3.6rem;
       font-family: 'Orbitron', sans-serif;
-      color: #4ade80;
+      color: #16a34a;
     }
     header p.tagline {
       font-size: 1.3rem;
@@ -86,7 +96,7 @@
     .section p, .section ul {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #e2e8f0;
+      color: #374151;
     }
     ul li {
       margin-bottom: 1rem;
@@ -132,40 +142,57 @@
   </nav>
 
   <header>
-    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" style="width: 350px;" />
-    <p class="tagline">Advanced Intelligence for Market Regimes</p>
-    <p class="subtext">Engineered by <strong>Regime Labs LLC</strong> for innovative hedge funds, quantitative leaders, and data-driven institutions.</p>
+    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" style="width: 220px;" />
+    <p class="tagline">Clarity in Market Complexity</p>
+    <p class="subtext">Powered by <strong>Regime Labs LLC</strong> — built for modern quants, portfolio managers, and financial researchers.</p>
+    <div style="margin-top: 2rem;">
+  <a href="https://regimealpha.onrender.com" target="_blank" style="
+    background: #16a34a;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 0 10px #a7f3d0;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+  ">
+    🚀 Explore Regime Alpha
+  </a>
+</div>
+
   </header>
 
   <div class="section" id="about">
-    <h2>🔬 What is Regime Alpha?</h2>
-    <p>
-      <strong>Regime Alpha</strong> is an institutional-grade analytics platform purpose-built to detect, classify, and interpret evolving market regimes. Leveraging a fusion of probabilistic modeling, macroeconomic context, and machine learning, it transforms noisy market data into structured, actionable insights that augment risk models, enhance allocation decisions, and contextualize trading signals. Unlike generic signal engines, Regime Alpha is not designed to forecast alpha directly — it characterizes the environments in which signals operate, enabling regime-aware strategy design, position sizing, and portfolio construction. Built to integrate flexibly into existing modeling stacks via a modular design.
-    </p>
-  </div>
+  <h2>🔍 What is Regime Alpha?</h2>
+  <p><strong>Regime Alpha</strong> is a regime analysis platform for institutional investors and researchers seeking to understand and adapt to structural shifts in market dynamics. Rather than focusing on alpha signals, it deciphers the context — identifying latent regimes defined by return distributions, volatilities, correlations, and macroeconomic conditions.</p>
+  <p>Its upcoming hybrid HMM framework will feature <em>forward-looking implied data</em> to inform transition probabilities and <em>realized economic signals</em> for regime state definitions — a novel dual-source architecture that enhances regime persistence, explanatory power, and predictive insight.</p>
+</div>
+
 
   <div class="section" id="models">
-    <h2>🧠 Core Capabilities</h2>
-    <strong>At its core</strong> Regime Alpha identifies latent structural states in financial time series — periods where return distributions, volatility, and cross-asset relationships exhibit persistent but distinct patterns. These regimes are revealed via a modular engine supporting:
-    <ul>
-      <li>Multimodel regime inference: GMM, Bayesian GMM, HMM</li>
-      <li>Kalman-based smoothing & PCA eigendrift monitoring</li>
-      <li>Integrated macroeconomic context from FRED</li>
-      <li>GPT-4 co-pilot for narrative overlays and regime summaries</li>
-      <li>Interactive dashboards for clustering, backtests, and timeline mapping</li>
-    </ul>
-    <p>Perfect for macro signal generation, stress testing, and alpha capture.</p>
-  </div>
+  <h2>🧠 Core Capabilities</h2>
+  <ul>
+    <li>Regime detection via GMM, Bayesian GMM, and HMM</li>
+    <li>Transition matrices customizable via implied macro or rate expectations</li>
+    <li>Kalman smoothing, PCA eigendrift tracking, and regime visualization</li>
+    <li>GPT-4 powered narrative generator for interpretability</li>
+    <li>Live and historical macro context from sources like FRED, CME FedWatch, and Kalshi</li>
+    <li>Interactive dashboards and portfolio-aware backtests</li>
+  </ul>
+</div>
+
 
   <div class="section" id="pricing">
-    <h2>💼 Access Tiers</h2>
-    <ul>
-      <li><strong>Standard Tier:</strong> Basic access to historical regime timelines & LLM summaries</li>
-      <li><strong>Pro Tier:</strong> Full model customization, backtests, data upload</li>
-      <li><strong>Institutional Tier:</strong> API access, dashboard sharing, research support</li>
-    </ul>
-    <p>Contact us for bespoke integration into your research stack.</p>
-  </div>
+  <h2>💼 Access Tiers</h2>
+  <ul>
+    <li><strong>Standard:</strong> Core regime detection tools with historical data</li>
+    <li><strong>Pro:</strong> Advanced configuration, live data, and portfolio uploads</li>
+    <li><strong>Institutional:</strong> API integration, research overlays, and custom consulting</li>
+  </ul>
+</div>
+
 
   <div class="cta">
     <a href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
@@ -176,7 +203,35 @@
     <p>For partnerships, questions, or investor demos, contact <strong>Joseph Bunster</strong> at <a style="color:#4ade80" href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a>.</p>
   </div>
 
+<div class="section" id="subscribe" style="text-align: center;">
+  <h2>📬 Stay Informed</h2>
+  <p>Join our early access and insights mailing list:</p>
+  <form action="https://formsubmit.co/bunster1227@gmail.com" method="POST" style="max-width: 500px; margin: 0 auto;">
+    <input type="email" name="email" required placeholder="Your email address" style="
+      padding: 0.75rem;
+      font-size: 1rem;
+      width: 70%;
+      max-width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    "/><br/>
+    <button type="submit" style="
+      background-color: #16a34a;
+      color: white;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    ">
+      Subscribe
+    </button>
+  </form>
+</div>
 
+  
 <style>
   .logo-row {
     display: flex;
