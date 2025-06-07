@@ -129,6 +129,9 @@
       font-size: 0.95rem;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
   <nav>
@@ -220,35 +223,41 @@
       <li><strong>Regime emissions</strong> use realized return distributions and macro features.</li>
     </ul>
     <p><em>Mathematical structure:</em></p>
-    <p style="font-family: monospace;">
-      P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>) → transition matrix<br>
-      yₜ | zₜ = k ~ 𝓝(μ<sub>k</sub>, Σ<sub>k</sub>) → regime-specific distributions<br>
+    <p>
+      \( P(z_t \mid z_{t-1}, x_t^{\text{implied}}) \rightarrow \text{transition matrix} \)<br>
+      \( y_t \mid z_t = k \sim \mathcal{N}(\mu_k, \Sigma_k) \rightarrow \text{regime-specific distributions} \)
     </p>
-    <p style="font-size: 0.95rem;">
-      Overall joint probability:<br>
-      <span style="font-family: monospace;">
-        P(z₁:T, y₁:T) = ∏ₜ P(yₜ | zₜ) · P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>)
-      </span>
+    <p>
+      <strong>Overall joint probability:</strong><br>
+      \[
+        P(z_{1:T}, y_{1:T}) = \prod_t P(y_t \mid z_t) \cdot P(z_t \mid z_{t-1}, x_t^{\text{implied}})
+      \]
     </p>
     <p>This enables dynamic, interpretable, and probabilistic regime detection with GPU support via RunPod. Full integration with LLM summaries, PCA diagnostics, and strategy overlays coming soon.</p>
   </div>
 </details>
+
 
 <details style="margin-top: 2rem; padding: 1.5rem; background: #f9fafb; border-left: 5px solid #16a34a; font-size: 1rem; border-radius: 10px;">
   <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #16a34a; font-family: 'Orbitron', sans-serif;">📐 Conditional Logistic Transitions (New Hybrid HMM) (click to expand)</summary>
   <div style="margin-top: 1rem;">
     <p>Unlike traditional HMMs with fixed transitions, our hybrid model dynamically adapts based on macro signals. This improves realism in financial markets where regime shifts often hinge on forward-looking data like futures or options.</p>
     <ul>
-      <li>Dynamic transition matrix: adjusts based on macro input \(\mathbf{x}_t\)</li>
+      <li>Dynamic transition matrix: adjusts based on macro input \( \mathbf{x}_t \)</li>
       <li>Uses softmax over weighted macro features to guide regime switching</li>
       <li>Ideal for modeling anticipation-driven environments (e.g., rate expectations)</li>
     </ul>
-    <p style="font-family: monospace; font-size: 0.95rem; margin-top: 1rem;">
-      \( \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t) = \frac{\exp(\mathbf{w}_{ij}^T \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^T \mathbf{x}_t + b_{ik})} \)
+    <p>
+      \[
+        \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t) =
+        \frac{\exp(\mathbf{w}_{ij}^T \mathbf{x}_t + b_{ij})}
+             {\sum_k \exp(\mathbf{w}_{ik}^T \mathbf{x}_t + b_{ik})}
+      \]
     </p>
-    <p>This lets Regime Alpha \"listen\" to markets like a skilled macro PM — and adjust regime probabilities accordingly.</p>
+    <p>This lets Regime Alpha "listen" to markets like a skilled macro PM — and adjust regime probabilities accordingly.</p>
   </div>
 </details>
+
 
   <p>All models are GPU-ready and compatible with backtesting logic, dashboard overlays, and co-pilot interpretation.</p>
 </div>
