@@ -242,28 +242,28 @@
     <details style="margin-top: 2rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
       <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #14532d; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview (click to expand)</summary>
     
-      <div class="section">
-        <details class="math-block" open>
-      <summary><h3>📀 Gaussian Mixture Model (GMM)</h3></summary>
-      <p>The GMM assumes observations are generated from a mixture of Gaussian distributions, each representing a hidden regime:</p>
-      \[
-        p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
-      \]
-      <ul>
-        <li>\( y_t \): observation at time \( t \)</li>
-        <li>\( \pi_k \): mixture weight of regime \( k \)</li>
-        <li>\( \mu_k, \Sigma_k \): mean and covariance of regime \( k \)</li>
-      </ul>
-    </details>
+    <div class="section">
+      <details class="math-block">
+        <summary><h3>📐 Gaussian Mixture Model (GMM)</h3></summary>
+        <p>The GMM assumes observations are generated from a mixture of Gaussian distributions, each representing a hidden regime:</p>
+        \[
+          p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
+        \]
+        <ul>
+          <li>\( y_t \): observation at time \( t \)</li>
+          <li>\( \pi_k \): mixture weight of regime \( k \)</li>
+          <li>\( \mu_k, \Sigma_k \): mean and covariance of regime \( k \)</li>
+        </ul>
+      </details>
     
-    <details class="math-block">
-      <summary><h3>📀 Bayesian GMM (BGMM)</h3></summary>
-      <p>A Bayesian extension of GMM that treats mixture weights and component parameters as random variables:</p>
-      \[
-        \pi \sim \text{Dir}(\alpha), \quad \mu_k, \Sigma_k \sim \text{NIW}(\lambda)
-      \]
-      <p>This provides uncertainty quantification and automatic complexity control.</p>
-    </details>
+      <details class="math-block">
+        <summary><h3>📐 Bayesian GMM (BGMM)</h3></summary>
+        <p>A Bayesian extension of GMM that treats mixture weights and component parameters as random variables:</p>
+        \[
+          \pi \sim \text{Dir}(\alpha), \quad \mu_k, \Sigma_k \sim \text{NIW}(\lambda)
+        \]
+        <p>This provides uncertainty quantification and automatic complexity control.</p>
+      </details>
 
     <div class="math-block">
       <h3>📀 Hybrid Hidden Markov Model (HMM)</h3>
