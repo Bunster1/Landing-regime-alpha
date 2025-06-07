@@ -136,6 +136,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#models">Models</a></li>
+      <li><a href="#why-it-matters">Why It Matters</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -170,18 +171,41 @@
   <p>Its upcoming hybrid HMM framework will feature <em>forward-looking implied data</em> to inform transition probabilities and <em>realized economic signals</em> for regime state definitions — a novel dual-source architecture that enhances regime persistence, explanatory power, and predictive insight.</p>
 </div>
 
-
-  <div class="section" id="models">
-  <h2>🧠 Core Capabilities</h2>
+  <div class="section" id="use-cases">
+  <h2>📊 Why Regime Modeling Matters</h2>
+  <p>Markets don’t move in a vacuum — they cycle through structural phases where relationships, volatility, and risk premia shift. Regime Alpha helps you:</p>
   <ul>
-    <li>Regime detection via GMM, Bayesian GMM, and HMM</li>
-    <li>Transition matrices customizable via implied macro or rate expectations</li>
-    <li>Kalman smoothing, PCA eigendrift tracking, and regime visualization</li>
-    <li>GPT-4 powered narrative generator for interpretability</li>
-    <li>Live and historical macro context from sources like FRED, CME FedWatch, and Kalshi</li>
-    <li>Interactive dashboards and portfolio-aware backtests</li>
+    <li>🛡️ Improve signal durability by testing alpha only in favorable regimes</li>
+    <li>📉 Stress test exposures under historical analogues</li>
+    <li>🧠 Add regime-awareness to position sizing and hedging logic</li>
+    <li>⚙️ Align strategy execution with macroeconomic transitions</li>
   </ul>
 </div>
+
+  <div class="section" id="why-it-matters">
+  <h2>📊 Why Regime Modeling Matters</h2>
+  <p>Markets evolve through structural phases—risk-on vs risk-off, inflation vs growth, crisis vs recovery. Regime Alpha helps you:</p>
+  <ul>
+    <li>🧭 Identify which environment you're in—before it's obvious</li>
+    <li>📉 Stress-test signals under regime-specific return patterns</li>
+    <li>🔍 Understand factor dominance across market cycles</li>
+    <li>⚙️ Build regime-aware allocation, hedging, and timing rules</li>
+  </ul>
+</div>
+
+  
+  <div class="section" id="models">
+  <h2>🧠 Regime Models Overview</h2>
+  <p>Choose from powerful statistical engines designed to capture nonstationarity and structural evolution across assets:</p>
+  <ul>
+    <li><strong>GMM (Gaussian Mixture Model):</strong> Unsupervised clustering of return patterns. Simple and fast.</li>
+    <li><strong>Bayesian GMM:</strong> Adds uncertainty estimates and guards against overfitting. Ideal for research workflows.</li>
+    <li><strong>HMM (Hidden Markov Model):</strong> Introduces temporal persistence and transition logic. Best for regime switching alpha models.</li>
+    <li><strong>Hybrid HMM (Coming Soon):</strong> Separates <em>state prediction</em> (via implied data like futures) from <em>state classification</em> (realized market + macro). GPU accelerated. Designed for forward-guided macro environments.</li>
+  </ul>
+  <p>All models are GPU-ready and compatible with backtesting logic, dashboard overlays, and co-pilot interpretation.</p>
+</div>
+
 
 
   <div class="section" id="pricing">
