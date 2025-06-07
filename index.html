@@ -196,15 +196,100 @@
   
   <div class="section" id="models">
   <h2>🧠 Regime Models Overview</h2>
-  <p>Choose from powerful statistical engines designed to capture nonstationarity and structural evolution across assets:</p>
+  <p>Choose from powerful statistical engines designed to capture nonstationarity and structural evolution across assets. Hover over each model for technical details:</p>
   <ul>
-    <li><strong>GMM (Gaussian Mixture Model):</strong> Unsupervised clustering of return patterns. Simple and fast.</li>
-    <li><strong>Bayesian GMM:</strong> Adds uncertainty estimates and guards against overfitting. Ideal for research workflows.</li>
-    <li><strong>HMM (Hidden Markov Model):</strong> Introduces temporal persistence and transition logic. Best for regime switching alpha models.</li>
-    <li><strong>Hybrid HMM (Coming Soon):</strong> Separates <em>state prediction</em> (via implied data like futures) from <em>state classification</em> (realized market + macro). GPU accelerated. Designed for forward-guided macro environments.</li>
+    <li title="Unsupervised clustering based on return distributions. Each observation belongs to a weighted combination of Gaussians. No temporal structure.">
+      <strong>GMM (Gaussian Mixture Model):</strong> Unsupervised clustering of return patterns. Simple and fast.
+    </li>
+    <li title="Adds a Dirichlet prior to the component weights, enabling uncertainty quantification. Helps prevent overfitting by adjusting model complexity automatically.">
+      <strong>Bayesian GMM:</strong> Adds uncertainty estimates and guards against overfitting. Ideal for research workflows.
+    </li>
+    <li title="Models a latent Markov chain governing observable time series. Transition matrix A controls switching. Assumes fixed A and Gaussian emission distribution.">
+      <strong>HMM (Hidden Markov Model):</strong> Introduces temporal persistence and transition logic. Best for regime switching alpha models.
+    </li>
+    <li title="Transition probabilities are functions of macro inputs x_t: P(z_t | z_{t-1}, x_t) ∝ exp(wᵢⱼᵀ x_t). Separates forward-looking transition logic from state classification.">
+      <strong>Hybrid HMM (Coming Soon):</strong> Separates <em>state prediction</em> (via implied data like futures) from <em>state classification</em> (realized market + macro). GPU accelerated. Designed for forward-guided macro environments.
+    </li>
   </ul>
+    <details style="margin-top: 2rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
+  <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #16a34a; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview (click to expand)</summary>
+  <div style="margin-top: 1rem;">
+    <p>This model separates transition logic from regime identity:</p>
+    <ul>
+      <li><strong>Transitions</strong> use forward-looking variables like option-implied vol, FedWatch, or prediction markets.</li>
+      <li><strong>Regime emissions</strong> use realized return distributions and macro features.</li>
+    </ul>
+    <p><em>Mathematical structure:</em></p>
+    <p style="font-family: monospace;">
+      P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>) → transition matrix<br>
+      yₜ | zₜ = k ~ 𝓝(μ<sub>k</sub>, Σ<sub>k</sub>) → regime-specific distributions<br>
+    </p>
+    <p style="font-size: 0.95rem;">
+      Overall joint probability:<br>
+      <span style="font-family: monospace;">
+        P(z₁:T, y₁:T) = ∏ₜ P(yₜ | zₜ) · P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>)
+      </span>
+    </p>
+    <p>This enables dynamic, interpretable, and probabilistic regime detection with GPU support via RunPod. Full integration with LLM summaries, PCA diagnostics, and strategy overlays coming soon.</p>
+  </div>
+</details>
+
+<details style="margin-top: 2rem; padding: 1.5rem; background: #f9fafb; border-left: 5px solid #16a34a; font-size: 1rem; border-radius: 10px;">
+  <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #16a34a; font-family: 'Orbitron', sans-serif;">📐 Conditional Logistic Transitions (New Hybrid HMM) (click to expand)</summary>
+  <div style="margin-top: 1rem;">
+    <p>Unlike traditional HMMs with fixed transitions, our hybrid model dynamically adapts based on macro signals. This improves realism in financial markets where regime shifts often hinge on forward-looking data like futures or options.</p>
+    <ul>
+      <li>Dynamic transition matrix: adjusts based on macro input \(\mathbf{x}_t\)</li>
+      <li>Uses softmax over weighted macro features to guide regime switching</li>
+      <li>Ideal for modeling anticipation-driven environments (e.g., rate expectations)</li>
+    </ul>
+    <p style="font-family: monospace; font-size: 0.95rem; margin-top: 1rem;">
+      \( \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t) = \frac{\exp(\mathbf{w}_{ij}^T \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^T \mathbf{x}_t + b_{ik})} \)
+    </p>
+    <p>This lets Regime Alpha \"listen\" to markets like a skilled macro PM — and adjust regime probabilities accordingly.</p>
+  </div>
+</details>
+
   <p>All models are GPU-ready and compatible with backtesting logic, dashboard overlays, and co-pilot interpretation.</p>
 </div>
+
+<div style="margin-top: 2rem; font-size: 1rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
+  <h3 style="margin-top: 0; color: #16a34a; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview</h3>
+  <p>This model separates transition logic from regime identity:</p>
+  <ul>
+    <li><strong>Transitions</strong> use forward-looking variables like option-implied vol, FedWatch, or prediction markets.</li>
+    <li><strong>Regime emissions</strong> use realized return distributions and macro features.</li>
+  </ul>
+  <p><em>Mathematical structure:</em></p>
+  <p style="font-family: monospace;">
+    P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>) → transition matrix<br>
+    yₜ | zₜ = k ~ 𝓝(μ<sub>k</sub>, Σ<sub>k</sub>) → regime-specific distributions<br>
+  </p>
+  <p style="font-size: 0.95rem;">
+    Overall joint probability:
+    <br>
+    <span style="font-family: monospace;">
+      P(z₁:T, y₁:T) = ∏ₜ P(yₜ | zₜ) · P(zₜ | zₜ₋₁, xₜ<sup>implied</sup>)
+    </span>
+  </p>
+  <p>This enables dynamic, interpretable, and probabilistic regime detection with GPU support via RunPod. Full integration with LLM summaries, PCA diagnostics, and strategy overlays coming soon.</p>
+</div>
+
+  
+  <div style="margin-top: 2rem; padding: 1rem 1.5rem; background: #f9fafb; border-left: 5px solid #16a34a; font-size: 1rem;">
+  <h3 style="margin-top: 0; font-family: 'Orbitron', sans-serif; color: #16a34a;">📐 Conditional Logistic Transitions (New Hybrid HMM)</h3>
+  <p>Unlike traditional HMMs with fixed transitions, our hybrid model dynamically adapts based on macro signals. This improves realism in financial markets where regime shifts often hinge on forward-looking data like futures or options.</p>
+  <ul>
+    <li>Dynamic transition matrix: adjusts based on macro input \(\mathbf{x}_t\)</li>
+    <li>Uses softmax over weighted macro features to guide regime switching</li>
+    <li>Ideal for modeling anticipation-driven environments (e.g., rate expectations)</li>
+  </ul>
+  <p style="font-family: monospace; font-size: 0.95rem; margin-top: 1rem;">
+    \( \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t) = \frac{\exp(\mathbf{w}_{ij}^T \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^T \mathbf{x}_t + b_{ik})} \)
+  </p>
+  <p>This lets Regime Alpha "listen" to markets like a skilled macro PM — and adjust regime probabilities accordingly.</p>
+</div>
+
 
 
 
