@@ -240,6 +240,58 @@
 
     <details style="margin-top: 2rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
   <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #14532d; font-family: 'Orbitron', sans-serif;">📐 Hybrid HMM – Mathematical Overview (click to expand)</summary>
+
+  <div class="section">
+    <div class="math-block">
+      <h3>📐 Gaussian Mixture Model (GMM)</h3>
+      <p>The GMM assumes observations are generated from a mixture of Gaussian distributions, each representing a hidden regime:</p>
+      \[
+        p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
+      \]
+      <ul>
+        <li>\( y_t \): observation at time \( t \)</li>
+        <li>\( \pi_k \): mixture weight of regime \( k \)</li>
+        <li>\( \mu_k, \Sigma_k \): mean and covariance of regime \( k \)</li>
+      </ul>
+    </div>
+
+    <div class="math-block">
+      <h3>📐 Bayesian GMM (BGMM)</h3>
+      <p>A Bayesian extension of GMM that treats mixture weights and component parameters as random variables:</p>
+      \[
+        \pi \sim \text{Dir}(\alpha), \quad \mu_k, \Sigma_k \sim \text{NIW}(\lambda)
+      \]
+      <p>This provides uncertainty quantification and automatic complexity control.</p>
+    </div>
+
+    <div class="math-block">
+      <h3>📐 Hybrid Hidden Markov Model (HMM)</h3>
+      <p>This model separates transition probabilities from state emissions using distinct data types:</p>
+      <p><strong>Transition probabilities:</strong></p>
+      \[
+        \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t^{\text{implied}}) =
+        \frac{\exp(\mathbf{w}_{ij}^\top \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^\top \mathbf{x}_t + b_{ik})}
+      \]
+      <p><strong>State emission model:</strong></p>
+      \[
+        y_t \mid z_t = k \sim \mathcal{N}(\mu_k, \Sigma_k)
+      \]
+      <p><strong>Joint probability:</strong></p>
+      \[
+        \mathbb{P}(z_{1:T}, y_{1:T}) = \prod_{t=1}^{T} \mathbb{P}(y_t \mid z_t) \cdot \mathbb{P}(z_t \mid z_{t-1}, \mathbf{x}_t^{\text{implied}})
+      \]
+      <ul>
+        <li>\( z_t \): hidden regime at time \( t \)</li>
+        <li>\( y_t \): observed feature</li>
+        <li>\( \mathbf{x}_t^{\text{implied}} \): forward-looking inputs</li>
+        <li>\( \mathbf{w}_{ij}, b_{ij} \): transition model weights</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+
+      
   <div style="margin-top: 1rem;">
     <p>This model decouples <strong>transition logic</strong> from <strong>regime state emissions</strong> using two distinct data sources:</p>
     <ul>
