@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regime Alpha | Docs & Math Overview</title>
+  <link rel="icon" href="/favicon.ico" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <style>
+    :root{
+      --brand-green:#16a34a;
+      --text-dark:#1f2937;
+      --text-muted:#64748b;
+      --border:#e2e8f0;
+      --radius:10px;
+    }
+    body{font-family:'Inter',sans-serif;margin:0;padding:0;color:var(--text-dark);line-height:1.65;}
+    a{color:var(--brand-green);text-decoration:none;}a:hover{color:#128033;}
+    header{background:#f3f4f6;padding:2.2rem 1.2rem;text-align:center;}
+    header h1{font-size:2rem;font-weight:700;margin:0 0 .4rem 0;}
+    header p{color:var(--text-muted);margin:0;font-size:1rem;}
+    nav{display:flex;justify-content:center;gap:2rem;margin-top:1rem;}
+    nav a{font-weight:600;font-size:.95rem;color:var(--text-dark);}nav a:hover{color:var(--brand-green);}
+    .container{max-width:900px;margin:0 auto;padding:2.5rem 1.2rem;}
+    h2{font-size:1.4rem;font-weight:600;color:var(--brand-green);margin:2.5rem 0 1rem;}
+    details{border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;background:#fafafa;}
+    summary{cursor:pointer;font-weight:600;font-size:1rem;color:var(--text-dark);}
+    .inner p{font-size:.95rem;color:var(--text-muted);}  
+    code{background:#f1f5f9;padding:.1rem .25rem;border-radius:4px;font-size:.9rem;}
+    footer{background:#0f172a;color:#d1d5db;text-align:center;padding:2rem 1rem;font-size:.85rem;margin-top:3rem;}
+  </style>
+  <!-- MathJax for formulas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Regime Alpha Documentation</h1>
+    <p>Mathematical foundations, model assumptions, and white‑paper downloads.</p>
+    <nav>
+      <a href="/index.html">← Back to Landing</a>
+      <a href="/research.html">Research Library</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Mathematical Foundations</h2>
+
+    <details open>
+      <summary>Gaussian Mixture Model (GMM)</summary>
+      <div class="inner">
+        <p>The GMM assumes observations are generated from a mixture of Gaussian distributions:</p>
+        \[
+          p(y_t) = \sum_{k=1}^{K} \pi_k \, \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
+        \]
+        <p>where \(\pi_k\) are mixture weights, and \(\mu_k,\Sigma_k\) parameterise each regime.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Bayesian Gaussian Mixture Model (BGMM)</summary>
+      <div class="inner">
+        <p>Places Dirichlet priors on weights and Normal‑Inverse‑Wishart priors on component parameters, enabling automatic complexity control and posterior uncertainty.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Hidden Markov Model (HMM)</summary>
+      <div class="inner">
+        <p>Captures temporal dependence via a Markov chain with Gaussian emissions:</p>
+        \[
+          \mathbb{P}(z_t=j \mid z_{t-1}=i)=A_{ij},\quad y_t \mid z_t=k \sim \mathcal{N}(\mu_k,\Sigma_k)
+        \]
+      </div>
+    </details>
+
+    <details>
+      <summary>Hybrid Hidden Markov Model (H‑HMM)</summary>
+      <div class="inner">
+        <p>Separates forward‑looking implied signals (guiding transitions) from realized macro features (defining states). Transition probabilities follow a soft‑max regression:</p>
+        \[
+          \mathbb{P}(z_t=j \mid z_{t-1}=i,\,\mathbf{x}_t^{\text{impl}})=\frac{\exp(\mathbf{w}_{ij}^\top\mathbf{x}_t+b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^\top\mathbf{x}_t+b_{ik})}
+        \]
+        <p>This decoupling improves interpretability and forecasting power.</p>
+      </div>
+    </details>
+
+    <h2>Download White‑Paper</h2>
+    <p>Download the full PDF (20 pp) covering model derivations, back‑test methodology, and performance tables: <br>
+       <a href="/docs/RegimeAlpha_WhitePaper.pdf" target="_blank">RegimeAlpha_WhitePaper.pdf</a></p>
+
+    <h2>Changelog</h2>
+    <ul style="color:var(--text-muted);font-size:.95rem;line-height:1.7;">
+      <li><strong>v0.9 – Jun 2025:</strong> Hybrid HMM introduced; GPU backend offloaded to RunPod.</li>
+      <li><strong>v0.8 – May 2025:</strong> LLM Copilot summaries released.</li>
+      <li><strong>v0.7 – Apr 2025:</strong> Strategy back‑tester MVP.</li>
+    </ul>
+  </div>
+
+  <footer>
+    &copy; 2025 Regime Labs LLC • All rights reserved
+  </footer>
+</body>
+</html>
