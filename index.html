@@ -3,601 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regime Alpha – Institutional Regime Intelligence | Regime Labs LLC</title>
-   <!-- ✅ Add this line here -->
-  <link rel="icon" href="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Regime Alpha | Institutional Regime Intelligence</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-  body, h1, h2, p {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9fafb;
-    color: #1f2937;
-    margin: 0;
-    padding: 0;
-  }
-
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #ffffff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    :root {
+      --brand-green: #16a34a;
+      --brand-green-light: #4ade80;
+      --brand-dark: #0f172a;
+      --text-dark: #1f2937;
+      --text-muted: #64748b;
+      --bg-light: #f9fafb;
+      --bg-section: #f3f4f6;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
-    nav h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.6rem;
-      color: #16a34a;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-    }
-    nav ul li a {
-      color: #1f2937;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #15803d;
-    }
-    header {
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-      background-color: #f3f4f6;
-    }
-
-    header img {
-      width: 180px;
-      margin-bottom: 1.2rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3.6rem;
-      font-family: 'Orbitron', sans-serif;
-      color: #14532d;
-    }
-    header p.tagline {
-      font-size: 1.3rem;
-      color: #1e293b;
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-    
-    header p.subtext {
-      font-size: 1rem;
-      color: #374151;
-      font-weight: 500;
-    }
-
-    .section {
-    max-width: 1100px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background-color: transparent; 
-    }
-
-    .section h2 {
-      color: #4ade80;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-family: 'Orbitron', sans-serif;
-    }
-    .section p, .section ul {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #374151;
-    }
-    ul li {
-      margin-bottom: 1rem;
-    }
-    .cta {
-      text-align: center;
-      margin: 5rem 0;
-    }
-    .cta a {
-      background: #4ade80;
-      color: #0f172a;
-      text-decoration: none;
-      padding: 1.2rem 2.5rem;
-      font-size: 1.5rem;
-      border-radius: 14px;
-      font-weight: bold;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Orbitron', sans-serif;
-      box-shadow: 0 0 18px #4ade80;
-    }
-    .cta a:hover {
-      background: #22c55e;
-      box-shadow: 0 0 26px #22c55e;
-    }
-    footer {
-      background: #1f2937;
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #e2e8f0;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg-light);color:var(--text-dark);line-height:1.65;}
+    a{text-decoration:none;color:var(--brand-green);transition:0.2s;}
+    a:hover{color:#128033;}
+    .container{max-width:1180px;margin:0 auto;padding:0 1.2rem;}
+    /* ─── Navbar ───────────────────────── */
+    nav{position:sticky;top:0;z-index:20;background:#ffffff;box-shadow:var(--shadow);}
+    nav .inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;}
+    nav h1{font-weight:700;font-size:1.5rem;color:var(--brand-green);} /* logo text */
+    nav ul{display:flex;gap:1.75rem;list-style:none;}
+    nav ul li a{font-weight:600;color:var(--text-dark);}
+    nav .cta{background:var(--brand-green);padding:0.55rem 1.2rem;border-radius:var(--radius);color:#fff;font-weight:600;box-shadow:0 0 10px rgba(0,0,0,.08);}
+    nav .cta:hover{background:#128033;}
+    /* ─── Hero ─────────────────────────── */
+    header{background:var(--bg-section);padding:5rem 0 4rem;text-align:center;}
+    header h1{font-size:3rem;font-weight:700;margin-bottom:0.8rem;color:var(--brand-dark);}
+    header p.lead{font-size:1.25rem;color:var(--text-muted);max-width:720px;margin:0 auto 2.2rem;}
+    .hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+    .btn{display:inline-block;padding:0.9rem 2rem;border-radius:var(--radius);font-weight:600;font-size:1.05rem;transition:0.25s;}
+    .btn-primary{background:var(--brand-green);color:#fff;box-shadow:0 0 14px rgba(0,0,0,.08);} .btn-primary:hover{background:#128033;}
+    .btn-outline{border:2px solid var(--brand-green);color:var(--brand-green);} .btn-outline:hover{background:var(--brand-green);color:#fff;}
+    /* ─── Sections ─────────────────────── */
+    section{padding:4.5rem 0;}
+    section.bg{background:var(--bg-section);} /* grey bg */
+    h2.section-title{font-size:2rem;font-weight:700;color:var(--brand-dark);margin-bottom:2rem;text-align:center;}
+    .grid{display:grid;gap:2rem;}
+    /* Features grid */
+    .features{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .feature-card{background:#ffffff;border:1px solid var(--border);padding:1.75rem;border-radius:var(--radius);box-shadow:var(--shadow);}
+    .feature-card h3{font-size:1.15rem;margin-bottom:0.6rem;color:var(--brand-dark);} .feature-card p{font-size:0.95rem;color:var(--text-muted);}
+    /* Logos strip */
+    .logos{display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;align-items:center;}
+    .logos img{max-height:34px;filter:grayscale(100%);opacity:0.8;transition:0.3s;}
+    .logos img:hover{filter:none;opacity:1;}
+    /* Pricing */
+    .pricing{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+    .price-card{background:#ffffff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center;display:flex;flex-direction:column;}
+    .price-card h3{font-size:1.25rem;margin-bottom:0.5rem;color:var(--brand-dark);} .price-card .price{font-size:2rem;font-weight:700;margin:1rem 0;color:var(--brand-green);} .price-card ul{list-style:none;text-align:left;margin-top:0.5rem;flex-grow:1;}
+    .price-card ul li{padding-left:1.1rem;position:relative;margin-bottom:0.6rem;font-size:0.95rem;color:var(--text-muted);} .price-card ul li::before{content:"✔";position:absolute;left:0;color:var(--brand-green);font-weight:700;}
+    .price-card .btn{margin-top:1.5rem;}
+    /* Footer */
+    footer{background:var(--brand-dark);color:#d1d5db;text-align:center;padding:2.5rem 1rem;font-size:0.9rem;}
+    footer a{color:var(--brand-green-light);} footer a:hover{color:#fff;}
   </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-  
 <body>
+  <!-- ── NAVBAR ─────────────────────────────────────── -->
   <nav>
-    <h1>Regime Alpha</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#models">Models</a></li>
-      <li><a href="#why-it-matters">Why It Matters</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="container inner">
+      <h1>Regime Alpha</h1>
+      <ul>
+        <li><a href="#why">Why</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://regimealpha.onrender.com" target="_blank" class="cta">Launch App</a>
+    </div>
   </nav>
 
+  <!-- ── HERO ──────────────────────────────────────── -->
   <header>
-  <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" style="width: 500px;" />
-  <p class="tagline" style="color:#1e293b; font-weight: 600;">Institutional Regime Intelligence</p>
-  <p class="subtext">Environment for testing and automating market regime analysis</p>
-
-  <div style="margin-top: 2rem;">
-    <a href="https://regimealpha.onrender.com" target="_blank" style="
-      background: #16a34a;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      font-size: 1.25rem;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 0 10px #a7f3d0;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Orbitron', sans-serif;
-    ">
-      🚀 Launch Regime Alpha
-    </a>
-  </div>
-</header>
-
-<section style="text-align: center; padding: 4rem 2rem; background: #ecfdf5;">
-  <h1 style="font-size: 2.5rem; color: #065f46; font-family: 'Orbitron', sans-serif;">
-    Regime Alpha: Navigate Market Regimes with Confidence
-  </h1>
-  <p style="font-size: 1.25rem; color: #374151; max-width: 800px; margin: 1.5rem auto;">
-    Powerful regime detection and macro-aware modeling — with GPU acceleration, live updates, LLM insights, and strategy testing. Built for institutional quants and PMs.
-  </p>
-</section>
-
-  <div class="section" id="about">
-  <h2>What is Regime Alpha?</h2>
-  <p>
-    <strong>Regime Alpha</strong> is a next-generation regime modeling and analytics platform built for institutional investors, quantitative researchers, and asset managers. It focuses on decoding the underlying structure of markets — uncovering latent regimes characterized by shifts in return distributions, volatility profiles, cross-asset correlations, and macroeconomic conditions.
-  </p>
-  <p>
-    Designed to provide context-aware decision support, Regime Alpha helps users adapt strategies to changing environments with greater clarity and confidence. Its upcoming <strong>Hybrid Hidden Markov Model (HMM)</strong> architecture distinguishes itself by separating:
-  </p>
-  <ul>
-    <li><em>Implied signals</em> (e.g., options data, prediction markets) to drive transition dynamics</li>
-    <li><em>Realized signals</em> (e.g., returns, spreads, macro indicators) to define regime states</li>
-  </ul>
-  <p>
-    This dual-source framework enhances regime persistence, interpretability, and predictive utility — enabling more robust forecasting, adaptive risk management, and systematic strategy overlays across regimes.
-  </p>
-</div>
-
-
-  <div class="section" id="use-cases">
-  <h2>Why Regime Modeling Matters</h2>
-  <p>
-    Financial markets are not static — they transition through structural environments where the behavior of risk factors, asset correlations, and volatility regimes evolve. Traditional models that assume stationarity or linearity often underperform when the underlying market dynamics shift. Regime Alpha equips institutional investors, strategists, and quants with the tools to detect, interpret, and adapt to these changing conditions in real time.
-  </p>
-  <p>
-    By identifying latent regimes using statistical learning and macroeconomic segmentation, Regime Alpha enables more robust portfolio construction and strategy execution across diverse market environments.
-  </p>
-  <ul>
-    <li><strong>Enhance Signal Reliability:</strong> Filter alpha strategies through regime-defined environments to reduce noise and improve statistical power.</li>
-    <li><strong>Stress-Test Across Analogous Periods:</strong> Simulate exposures under historically similar regimes to validate strategy robustness and tail risk behavior.</li>
-    <li><strong>Inform Dynamic Position Sizing:</strong> Adjust portfolio weights based on prevailing regime characteristics such as volatility, dispersion, or liquidity stress.</li>
-    <li><strong>Improve Hedging Precision:</strong> Tailor hedging rules to regime-specific correlations, drawdown patterns, and flight-to-safety behavior.</li>
-    <li><strong>Macro-Aware Execution:</strong> Time entries, exits, and rebalancing based on transitions between inflationary, tightening, or crisis-driven regimes.</li>
-    <li><strong>Support Factor Timing:</strong> Understand which factors—momentum, value, carry—tend to outperform in different market regimes.</li>
-  </ul>
-</div>
-
-
-
-
-  
-  <div class="section" id="models">
-  <h2>Regime Models Overview</h2>
-  <p>Choose from powerful statistical engines designed to capture nonstationarity and structural evolution across assets.</p>
-  <table style="width:100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 1rem;">
-    <thead>
-      <tr style="background: #f1f5f9; color: #1e293b;">
-        <th style="text-align: left; padding: 0.75rem;">Model</th>
-        <th style="text-align: left; padding: 0.75rem;">Description</th>
-        <th style="text-align: left; padding: 0.75rem;">Best For</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #e2e8f0;">
-        <td style="padding: 0.75rem;"><strong>GMM</strong></td>
-        <td style="padding: 0.75rem;">Clusters market observations via Gaussian distributions. No time dependency.</td>
-        <td style="padding: 0.75rem;">Exploratory analysis, fast clustering</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #e2e8f0;">
-        <td style="padding: 0.75rem;"><strong>Bayesian GMM</strong></td>
-        <td style="padding: 0.75rem;">Introduces priors for uncertainty estimation and adaptive complexity control.</td>
-        <td style="padding: 0.75rem;">Robust research workflows, interpretability</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #e2e8f0;">
-        <td style="padding: 0.75rem;"><strong>HMM</strong></td>
-        <td style="padding: 0.75rem;">Captures regime persistence through a fixed transition matrix over hidden states.</td>
-        <td style="padding: 0.75rem;">Modeling regime-switching behavior over time</td>
-      </tr>
-      <tr>
-        <td style="padding: 0.75rem;"><strong>Hybrid HMM (New)</strong></td>
-        <td style="padding: 0.75rem;">Uses implied data to guide transitions, while state definitions rely on realized macro data. GPU-powered.</td>
-        <td style="padding: 0.75rem;">Forward-looking strategy alignment, macro regime tracking</td>
-      </tr>
-    </tbody>
-  </table>
-
-    <div style="margin-top: 3rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; color: #1e293b;">
-  <details>
-    <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: #14532d; font-family: 'Orbitron', sans-serif;">
-      – Mathematical Overview of Models (click to expand)
-    </summary>
-
-    <div class="section" style="margin-top: 1rem;">
-      <!-- GMM Block -->
-      <details class="math-block">
-        <summary><h3>Gaussian Mixture Model (GMM)</h3></summary>
-        <div class="content">
-          <p>The GMM assumes observations are generated from a mixture of Gaussian distributions, each representing a hidden regime:</p>
-          \[
-            p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
-          \]
-          <ul>
-            <li>\( y_t \): observation at time \( t \)</li>
-            <li>\( \pi_k \): mixture weight of regime \( k \)</li>
-            <li>\( \mu_k, \Sigma_k \): mean and covariance of regime \( k \)</li>
-          </ul>
-        </div>
-      </details>
-      <details class="math-block">
-  <summary><h3>Bayesian Gaussian Mixture Model (BGMM)</h3></summary>
-  <div class="content">
-    <p>
-      The <strong>Bayesian Gaussian Mixture Model (BGMM)</strong> extends the classical GMM by placing prior distributions over the model parameters, enabling automatic regularization, complexity control, and uncertainty quantification. This approach integrates over model uncertainty rather than relying solely on point estimates.
-    </p>
-
-    <p><strong>Generative Process:</strong></p>
-    <p>
-      Each observation \( y_t \) is assumed to be generated from one of \( K \) Gaussian components:
-    </p>
-    \[
-      p(y_t) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(y_t \mid \mu_k, \Sigma_k)
-    \]
-
-    <p><strong>Priors:</strong></p>
-    <ul>
-      <li><strong>Mixture Weights:</strong> 
-        \[
-          \boldsymbol{\pi} \sim \text{Dirichlet}(\boldsymbol{\alpha})
-        \]
-        where \( \boldsymbol{\pi} = (\pi_1, \ldots, \pi_K) \) represents the mixing proportions across \( K \) components.
-      </li>
-      <li><strong>Component Parameters:</strong> 
-        \[
-          (\mu_k, \Sigma_k) \sim \text{Normal-Inverse-Wishart}(\mu_0, \kappa_0, \Psi_0, \nu_0)
-        \]
-        where:
-        <ul>
-          <li>\( \mu_0 \): prior mean of component means</li>
-          <li>\( \kappa_0 \): strength (confidence) of the prior on the mean</li>
-          <li>\( \Psi_0 \): scale matrix of the Inverse-Wishart prior (covariance structure)</li>
-          <li>\( \nu_0 \): degrees of freedom for the covariance prior</li>
-        </ul>
-      </li>
-    </ul>
-
-    <p>
-      This formulation defines a full posterior over both the mixture weights and component parameters:
-    </p>
-    \[
-      p(\boldsymbol{\pi}, \mu_{1:K}, \Sigma_{1:K} \mid y_{1:T})
-    \]
-
-    <p>
-      Inference is typically performed via variational methods or Gibbs sampling. Compared to standard GMM, BGMM is less prone to overfitting and can automatically reduce the effective number of components by shrinking irrelevant mixture weights toward zero.
-    </p>
-  </div>
-</details>
-
-    
-      <details class="math-block">
-        <summary><h3>Hidden Markov Model (HMM)</h3></summary>
-        <div class="content">
-          <p>Captures latent state transitions over time using a Markov process with Gaussian emissions:</p>
-          \[
-            \mathbb{P}(z_t = j \mid z_{t-1} = i) = A_{ij}, \quad y_t \mid z_t = k \sim \mathcal{N}(\mu_k, \Sigma_k)
-          \]
-          <p>Joint probability:</p>
-          \[
-            \mathbb{P}(z_{1:T}, y_{1:T}) = \prod_{t=1}^{T} \mathbb{P}(y_t \mid z_t) \cdot \mathbb{P}(z_t \mid z_{t-1})
-          \]
-          <ul>
-            <li>\( z_t \): hidden regime at time \( t \)</li>
-            <li>\( y_t \): observed feature (e.g., returns)</li>
-            <li>\( A_{ij} \): fixed regime transition probability matrix</li>
-          </ul>
-        </div>
-      </details>
-
-
-    <details class="math-block">
-      <summary><h3>📐 Hybrid Hidden Markov Model (HMM)</h3></summary>
-      <div class="content">
-        <p>This model separates transition probabilities from state emissions using distinct data types:</p>
-        <p><strong>Transition probabilities:</strong></p>
-        \[
-          \mathbb{P}(z_t = j \mid z_{t-1} = i, \mathbf{x}_t^{\text{implied}}) =
-          \frac{\exp(\mathbf{w}_{ij}^\top \mathbf{x}_t + b_{ij})}{\sum_k \exp(\mathbf{w}_{ik}^\top \mathbf{x}_t + b_{ik})}
-        \]
-        <p><strong>State emission model (customizable):</strong></p>
-        \[
-          y_t \mid z_t = k \sim \text{Distribution}(\theta_k)
-        \]
-        <p><strong>Joint probability:</strong></p>
-        \[
-          \mathbb{P}(z_{1:T}, y_{1:T}) = \prod_{t=1}^{T} \mathbb{P}(y_t \mid z_t) \cdot \mathbb{P}(z_t \mid z_{t-1}, \mathbf{x}_t^{\text{implied}})
-        \]
-        <ul>
-          <li>\( z_t \): hidden regime at time \( t \)</li>
-          <li>\( y_t \): observed feature</li>
-          <li>\( \mathbf{x}_t^{\text{implied}} \): forward-looking inputs</li>
-          <li>\( \mathbf{w}_{ij}, b_{ij} \): transition model weights</li>
-          <li>\( \text{Distribution}(\theta_k) \): user-defined emission (Normal, t, Laplace)</li>
-          <li><strong>Sticky HMM</strong>: add self-transition bias \( \kappa \) to emphasize regime persistence</li>
-        </ul>
+    <div class="container">
+      <h1>Institutional Regime Intelligence</h1>
+      <p class="lead">Quantitative market‑regime detection &amp; analytics platform that turns raw data into dynamic, macro‑aware investment signals.</p>
+      <div class="hero-actions">
+        <a href="https://regimealpha.onrender.com" target="_blank" class="btn btn-primary">🚀 Launch Regime Alpha</a>
+        <a href="#contact" class="btn btn-outline">Book a Demo</a>
       </div>
-    </details>
-    <div class="math-block">
-      <h3>🔄 Hybrid vs. Naive Combination</h3>
-      <p>Rather than mixing implied and realized features into a single model (which can dilute signal or distort causality), Regime Alpha separates their roles:</p>
-      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-        <thead style="background: #e5e7eb; font-weight: 600;">
-          <tr>
-            <td style="padding: 0.75rem;">Approach</td>
-            <td style="padding: 0.75rem;">Transition Drivers</td>
-            <td style="padding: 0.75rem;">State Definitions</td>
-            <td style="padding: 0.75rem;">Interpretability</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 0.75rem; font-weight: 600;">Naive Mix</td>
-            <td style="padding: 0.75rem;">Mixed implied & realized</td>
-            <td style="padding: 0.75rem;">Same mixed input</td>
-            <td style="padding: 0.75rem;">Low – entangled causality</td>
-          </tr>
-          <tr>
-            <td style="padding: 0.75rem; font-weight: 600;">Hybrid HMM</td>
-            <td style="padding: 0.75rem;">Implied data (e.g. options, FedWatch)</td>
-            <td style="padding: 0.75rem;">Realized features (returns, spreads)</td>
-            <td style="padding: 0.75rem;">High – separated signal roles</td>
-            <div class="section">
-          <h2>⚙️ Key Features</h2>
-          <ul>
-            <li>🧠 Model regime shifts using GMM, BGMM, HMM, and a novel Hybrid HMM</li>
-            <li>📊 Select from customizable emission distributions: Normal, Laplace, t-distributions</li>
-            <li>📈 Analyze portfolios with PCA, Z-scores, regime-specific summary stats</li>
-            <li>💡 Real-time LLM summaries explain insights from current regime structure</li>
-            <li>🚀 Run heavy computations on-demand using GPU-backed RunPod integration</li>
-            <li>🔔 Auto-update with new macro data and trigger alerts on probable regime shifts</li>
-          </ul>
-        </div>
-
-          </tr>
-        </tbody>
-      </table>
     </div>
-  </div>
+  </header>
 
-  </details> <!-- ✅ CLOSE the big Mathematical Overview details -->
+  <!-- ── TRUST SIGNALS ─────────────────────────────── -->
+  <section class="bg">
+    <div class="container">
+      <div class="logos">
+        <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/trust1.svg" alt="AWS Partner" />
+        <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/trust2.svg" alt="RunPod GPU" />
+        <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/trust3.svg" alt="SOC 1 in Progress" />
+        <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/trust4.svg" alt="FRED Data" />
+      </div>
+    </div>
+  </section>
 
-</div> <!-- ✅ CLOSE div.section id="models" if this is the end of Models -->
+  <!-- ── WHY IT MATTERS ───────────────────────────── -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">Why Regime Modeling ?</h2>
+      <p style="max-width:820px;margin:0 auto 2.2rem;text-align:center;color:var(--text-muted);">Markets transition through structural environments where return distributions, cross‑asset correlations, and volatility regimes evolve. Strategies that ignore these shifts risk regime drag and unexpected drawdowns. Regime Alpha uncovers and tracks these latent states in real‑time so you can adapt allocation, risk and execution ahead of the crowd.</p>
+    </div>
+  </section>
 
- <!-- --- Supporting Research on Regime Modeling --- -->
-<div class="section" id="research">
-  <h2>Supporting Research on Regime Modeling</h2>
-  <ul>
-    <li>
-      <a href="https://www.twosigma.com/articles/a-machine-learning-approach-to-regime-modeling/" target="_blank">
-        Two Sigma Street View: “A Machine Learning Approach to Regime Modeling” (2021)
-      </a> — Shows how applying a Gaussian Mixture Model to the Two Sigma Factor Lens identifies four persistent market conditions and enhances tail-risk management for allocators.
-    </li>
-    <li>
-      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1028445" target="_blank">
-        “Is Regime Switching in Stock Returns Important in Portfolio Decisions?” (Tu, 2010)
-      </a> — Bayesian regime-switching framework delivers 2–10 % certainty-equivalent gains versus single-regime benchmarks.
-    </li>
-    <li>
-      <a href="https://www2.imm.dtu.dk/pubdb/pubs/6808-full.html" target="_blank">
-        “Regime-Based Asset Allocation – Do Profitable Strategies Exist?” (Nystrup, 2014)
-      </a> — Two-state Gaussian HMM drives a dynamic 60/40 strategy that outperforms fixed-weight portfolios after costs.
-    </li>
-    <li>
-      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4389763" target="_blank">
-        “A Gaussian-Mixture Hidden Markov Model for the VIX” (Aigner, 2023)
-      </a> — 4-state GMM-HMM signals cut equity drawdowns and boost risk-adjusted returns in volatility-timing tests.
-    </li>
-    <li>
-      <a href="https://arxiv.org/abs/2402.05272" target="_blank">
-        “Downside Risk Reduction Using Regime-Switching Signals: A Statistical Jump Model Approach” (Shu et al., 2024)
-      </a> — Jump-penalised regime model halves max drawdown and lifts Sharpe versus both HMM-guided and buy-&-hold strategies.
-    </li>
-  </ul>
-</div>
+  <!-- ── FEATURES ──────────────────────────────────── -->
+  <section id="features" class="bg">
+    <div class="container">
+      <h2 class="section-title">Platform Highlights</h2>
+      <div class="grid features">
+        <div class="feature-card">
+          <h3>Hybrid HMM Engine</h3>
+          <p>Separates forward‑looking implied signals from realized macro data for predictive, causality‑aware regime transitions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>GPU‑Accelerated</h3>
+          <p>On‑demand RunPod GPU backend slashes model‑fit times so researchers iterate in minutes, not hours.</p>
+        </div>
+        <div class="feature-card">
+          <h3>LLM Copilot</h3>
+          <p>Explain complex regime shifts in plain English and auto‑generate strategy notes &amp; risk briefs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Strategy Backtests</h3>
+          <p>Define regime‑aware rules (“Long momentum in risk‑on”) and validate across decades with transaction‑cost modeling.</p>
+        </div>
+        <div class="feature-card">
+          <h3>API & Private VPC</h3>
+          <p>Stream JSON or Parquet outputs directly into your research stack—optionally deployed into your private cloud for data sovereignty.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Alerts &amp; Webhooks</h3>
+          <p>Receive Slack / email / Webhook notifications when regime-switch probability exceeds your threshold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  
-<footer style="text-align: center; padding: 2rem; background: #f3f4f6; color: #4b5563; font-size: 0.95rem;">
-  <p>Built by Regime Labs LLC | © 2025 | <a href="mailto:contact@regimealpha.com" style="color: #15803d;">Contact Us</a></p>
-</footer>
+  <!-- ── MODELS OVERVIEW ──────────────────────────── -->
+  <section id="models">
+    <div class="container">
+      <h2 class="section-title">Statistical Engines</h2>
+      <div class="grid features" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <div class="feature-card"><h3>GMM</h3><p>Fast, unsupervised clustering—ideal for exploratory segmentation.</p></div>
+        <div class="feature-card"><h3>Bayesian GMM</h3><p>Priors enforce parsimony and deliver posterior uncertainty.</p></div>
+        <div class="feature-card"><h3>HMM</h3><p>Time‑dependent state persistence with flexible emission distributions.</p></div>
+        <div class="feature-card"><h3>Hybrid HMM</h3><p>Next‑gen approach that decouples transition &amp; emission drivers for macro‑aware foresight.</p></div>
+      </div>
+      <p style="text-align:center;margin-top:1.8rem;color:var(--text-muted);font-size:0.9rem;">All models are GPU‑ready and integrate with our strategy backtester &amp; LLM copilot.</p>
+    </div>
+  </section>
 
-    
+  <!-- ── PRICING ─────────────────────────────────── -->
+  <section id="pricing" class="bg">
+    <div class="container">
+      <h2 class="section-title">Flexible Access Tiers</h2>
+      <div class="grid pricing">
+        <div class="price-card">
+          <h3>Standard</h3>
+          <div class="price">$1,250<span style="font-size:1rem;font-weight:500;">/mo</span></div>
+          <ul>
+            <li>Historical regime detection</li>
+            <li>Core strategy backtester</li>
+            <li>Email alerts (daily)</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Start Trial</a>
+        </div>
+        <div class="price-card">
+          <h3>Pro</h3>
+          <div class="price">$2,750<span style="font-size:1rem;font-weight:500;">/mo</span></div>
+          <ul>
+            <li>Live data refresh (hourly)</li>
+            <li>Portfolio overlay module</li>
+            <li>Slack / Webhook alerts</li>
+            <li>Research API</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Request Access</a>
+        </div>
+        <div class="price-card" style="border:2px solid var(--brand-green);">
+          <h3>Institutional</h3>
+          <div class="price">Custom</div>
+          <ul>
+            <li>Private VPC deployment</li>
+            <li>Unlimited data &amp; users</li>
+            <li>White‑label dashboards</li>
+            <li>Dedicated quant support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT / CTA ───────────────────────────── -->
+  <section id="contact">
+    <div class="container" style="text-align:center;max-width:620px;">
+      <h2 class="section-title">Get in Touch</h2>
+      <p style="color:var(--text-muted);margin-bottom:2rem;">Schedule a demo, access our API, or chat about custom research.</p>
+      <form action="https://formsubmit.co/bunster1227@gmail.com" method="POST" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <input type="email" name="email" placeholder="Work email" required style="flex:1 1 240px;padding:0.9rem;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;" />
+        <button class="btn btn-primary" type="submit" style="flex:0 0 auto;">Request Demo</button>
+      </form>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.8rem;">Or email <a href="mailto:contact@regimealpha.com">contact@regimealpha.com</a></p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2025 Regime Labs LLC • All rights reserved • <a href="/docs/RegimeAlpha_Terms.pdf" target="_blank">Terms</a> • <a href="/docs/RegimeAlpha_Privacy.pdf" target="_blank">Privacy</a></p>
+  </footer>
 </body>
 </html>
-
-  <p>All models are GPU-ready and compatible with backtesting logic, dashboard overlays, and co-pilot interpretation.</p>
-</div>
-
-
-<div class="section" id="indispensable">
-  <h2>💡 Core Regime Alpha Features</h2>
-  <ul>
-    <li><strong>Auto-Updating Regime Alerts:</strong> Get notified when the probability of a regime switch crosses a threshold — anticipate turning points.</li>
-    <li><strong>Portfolio Overlay Mode:</strong> Upload a portfolio and instantly see its exposures across current and historical regimes.</li>
-    <li><strong>LLM Copilot Summaries:</strong> AI-generated interpretations for each regime — no quant PhD required.</li>
-    <li><strong>Custom Strategy Backtests:</strong> Simulate rules like “Long in regime 2, exit in regime 3 with >75% probability” over decades of history.</li>
-    <li><strong>Live Macroeconomic Feeds:</strong> Use daily-updated rates, spreads, volatility surfaces, and prediction markets to inform transitions.</li>
-    <li><strong>Modular + Explainable:</strong> Use GMM for fast clustering, HMM for persistence, or Hybrid HMM for causality-aware transitions — all GPU-enabled.</li>
-    <li><strong>Historical Analog Explorer:</strong> Find similar regime trajectories from the past to inform future expectations and scenario planning.</li>
-  </ul>
-</div>
-
-
-
-  <div class="section" id="pricing">
-  <h2>Access Tiers</h2>
-  <ul>
-    <li><strong>Standard:</strong> Core regime detection tools with historical data</li>
-    <li><strong>Pro:</strong> Advanced configuration, live data, and portfolio uploads</li>
-    <li><strong>Institutional:</strong> API integration, research overlays, and custom consulting</li>
-  </ul>
-</div>
-
-
-  <div class="cta">
-    <a href="https://regimealpha.onrender.com" target="_blank">🚀 Launch Regime Alpha</a>
-  </div>
-
-  
-
-<div class="section" id="subscribe" style="text-align: center;">
-  <h2>📬 Stay Informed</h2>
-  <p>Join our early access and insights mailing list:</p>
-  <form action="https://formsubmit.co/bunster1227@gmail.com" method="POST" style="max-width: 500px; margin: 0 auto;">
-    <input type="email" name="email" required placeholder="Your email address" style="
-      padding: 0.75rem;
-      font-size: 1rem;
-      width: 70%;
-      max-width: 100%;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    "/><br/>
-    <button type="submit" style="
-      background-color: #16a34a;
-      color: white;
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    ">
-      Subscribe
-    </button>
-  </form>
-</div>
-
- 
-<style>
-  .logo-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    padding: 2rem 1rem;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  .logo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 320px;
-    transition: transform 0.3s ease;
-  }
-
-  .logo-item:hover {
-    transform: scale(1.05);
-  }
-
-  .logo-item img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.2));
-    transition: filter 0.3s ease;
-  }
-
-  .logo-caption {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: #9ca3af;
-    font-family: 'Inter', sans-serif;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .logo-item img {
-      filter: brightness(1.1) contrast(1.1);
-    }
-
-    .logo-caption {
-      color: #d1d5db;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .logo-item img {
-      max-width: 240px;
-    }
-  }
-</style>
-
-<div class="logo-row">
-  <div class="logo-item">
-    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/RegimeAlpha%20Logo2.png" alt="Regime Alpha Logo" />
-    <div class="logo-caption">Regime Alpha</div>
-  </div>
-  <div class="logo-item">
-    <img src="https://raw.githubusercontent.com/Bunster1/Landing-regime-alpha/main/regimeLabsLLC%20Logo2.png" alt="Regime Labs LLC Logo" />
-    <div class="logo-caption">Regime Labs LLC</div>
-  </div>
-</div>
-
- <div class="section" id="contact">
-    <h2>📨 Contact</h2>
-    <p>For Demos or Questions, contact <strong>Joseph Bunster</strong> at <a style="color:#4ade80" href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a>.</p>
-  </div>
-    
-<footer>
-  <p>&copy; 2025 <strong>Regime Labs LLC</strong> • All rights reserved</p>
-</footer>
