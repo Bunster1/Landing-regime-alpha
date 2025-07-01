@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regime Alpha | API Documentation</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--brand-green:#16a34a;--text-dark:#1f2937;--text-muted:#64748b;--border:#e2e8f0;--radius:10px;}
+    body{font-family:'Inter',sans-serif;margin:0;color:var(--text-dark);line-height:1.65;background:#fff;}
+    a{color:var(--brand-green);text-decoration:none;}a:hover{color:#128033;}
+    header{background:#f3f4f6;padding:2.2rem 1.2rem;text-align:center;}
+    header h1{font-size:2rem;font-weight:700;margin:0 0 .4rem;}
+    header p{color:var(--text-muted);margin:0;font-size:1rem;}
+    nav{display:flex;justify-content:center;gap:2rem;margin-top:1rem;}
+    nav a{font-weight:600;font-size:.95rem;color:var(--text-dark);}nav a:hover{color:var(--brand-green);}
+    .container{max-width:920px;margin:0 auto;padding:2.5rem 1.2rem;}
+    h2{font-size:1.4rem;font-weight:600;color:var(--brand-green);margin:2.5rem 0 1rem;}
+    .card{border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1.4rem;background:#fafafa;}
+    .card h3{margin:0 0 .4rem;font-size:1.1rem;font-weight:600;}
+    .card p,.card pre{font-size:.95rem;color:var(--text-muted);}
+    code,pre{background:#f1f5f9;border-radius:4px;padding:.25rem .4rem;overflow:auto;}
+    table{width:100%;border-collapse:collapse;font-size:.9rem;margin-bottom:1.5rem;}
+    th,td{border:1px solid var(--border);padding:.65rem;text-align:left;}
+    th{background:#f9fafb;font-weight:600;}
+    footer{background:#0f172a;color:#d1d5db;text-align:center;padding:2rem 1rem;font-size:.85rem;margin-top:3rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Regime Alpha API</h1>
+    <p>Programmatic access to regime probabilities, model outputs, and portfolio overlays.</p>
+    <nav>
+      <a href="index.html">← Back to Landing</a>
+      <a href="docs.html">Docs</a>
+      <a href="security.html">Security</a>
+      <a href="research.html">Research</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <h2>Quick Start</h2>
+    <div class="card">
+      <h3>Base URL</h3>
+      <p><code>https://api.regimealpha.com/v1/</code></p>
+      <h3>Authentication</h3>
+      <p>Send an <code>Authorization: Bearer &lt;API_KEY&gt;</code> header with every request. Keys are provisioned in the dashboard (Pro &amp; Institutional tiers).</p>
+    </div>
+
+    <h2>Endpoints</h2>
+    <table>
+      <thead>
+        <tr><th>Endpoint</th><th>Method</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>/regime/latest</code></td><td>GET</td><td>Returns the latest regime probabilities for a symbol or portfolio.</td></tr>
+        <tr><td><code>/regime/history</code></td><td>GET</td><td>Time‑series of regime probs between <code>start_date</code> &amp; <code>end_date</code>.</td></tr>
+        <tr><td><code>/portfolio/upload</code></td><td>POST</td><td>Upload positions CSV and receive UUID for overlay analysis.</td></tr>
+        <tr><td><code>/portfolio/{id}/overlay</code></td><td>GET</td><td>Regime exposure and back‑tested PnL for uploaded portfolio.</td></tr>
+        <tr><td><code>/alerts</code></td><td>POST</td><td>Create email / webhook alert when regime‑switch probability crosses threshold.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Example — Latest Regime Call</h2>
+    <div class="card">
+<pre>{
+  "request": {
+    "symbol": "SPY"
+  },
+  "response": {
+    "timestamp": "2025-06-30T15:00:00Z",
+    "regimes": [
+      {"state": 0, "prob": 0.04},
+      {"state": 1, "prob": 0.12},
+      {"state": 2, "prob": 0.73},
+      {"state": 3, "prob": 0.11}
+    ],
+    "most_likely": 2
+  }
+}</pre>
+    </div>
+
+    <h2>Rate Limits</h2>
+    <p style="color:var(--text-muted);font-size:.95rem;">Standard: 30 req/min • Pro: 120 req/min • Institutional: negotiable. Burst requests return <code>429 Too Many Requests</code>.</p>
+
+    <h2>Error Codes</h2>
+    <table>
+      <thead><tr><th>Status</th><th>Meaning</th><th>Typical Fix</th></tr></thead>
+      <tbody>
+        <tr><td>401</td><td>Unauthorized</td><td>Missing or invalid API key header.</td></tr>
+        <tr><td>404</td><td>Not Found</td><td>Wrong UUID or symbol.</td></tr>
+        <tr><td>429</td><td>Rate Limit</td><td>Throttle or upgrade tier.</td></tr>
+        <tr><td>500</td><td>Server Error</td><td>Contact support if repeated.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Python Quick‑Start</h2>
+    <div class="card">
+<pre>import requests
+API_KEY = "YOUR_KEY"
+resp = requests.get(
+    "https://api.regimealpha.com/v1/regime/latest",
+    params={"symbol": "SPY"},
+    headers={"Authorization": f"Bearer {API_KEY}"}
+)
+print(resp.json())</pre>
+    </div>
+
+    <h2>Support</h2>
+    <p style="color:var(--text-muted);font-size:.95rem;">Questions? E‑mail <a href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a> or ping the #api‑support Slack channel (Pro/Inst tiers).</p>
+
+  </div>
+
+  <footer>&copy; 2025 Regime Labs LLC • All rights reserved</footer>
+</body>
+</html>
