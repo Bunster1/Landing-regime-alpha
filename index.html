@@ -33,6 +33,22 @@
     a:hover{ color:#128033; }
     .container{ max-width:1180px; margin:0 auto; padding:0 1.2rem; }
 
+    /* —— Brand-logo row under hero —— */
+    .brand-logos{
+      margin-top:2.5rem;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:2rem;
+      flex-wrap:wrap;
+    }
+    .brand-logos img{
+      max-height:80px;           /* keep logos equal height */
+      width:auto;
+      filter:drop-shadow(0 2px 4px rgba(0,0,0,.1));
+    }
+
+    
     /* Navbar */
     nav{ position:sticky; top:0; z-index:20; background:#fff; box-shadow:var(--shadow); }
     nav .inner{ display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
@@ -114,6 +130,11 @@
       <div class="hero-actions">
         <a href="https://regimealpha.onrender.com" target="_blank" class="btn btn-primary">🚀 Launch Regime Alpha</a>
         <a href="#contact" class="btn btn-outline">Book a Demo</a>
+      </div>
+      <!-- brand logos -->
+      <div class="brand-logos">
+        <img src="RegimeAlpha Logo2.png"        alt="Regime Alpha Logo">
+        <img src="regimeLabsLLC Logo2.png"      alt="Regime Labs Logo">
       </div>
     </div>
   </header>
