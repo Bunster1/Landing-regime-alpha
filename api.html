@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regime Alpha | API Documentation</title>
+  <title>Regime Alpha | API Roadmap</title>
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,8 +31,8 @@
 </head>
 <body>
   <header>
-    <h1>Regime Alpha API</h1>
-    <p>Programmatic access to regime probabilities, model outputs, and portfolio overlays.</p>
+    <h1>Regime Alpha API – Roadmap</h1>
+    <p>Our public API is not live yet. This page outlines the planned design and timeline.</p>
     <nav>
       <a href="index.html">← Back to Landing</a>
       <a href="docs.html">Docs</a>
@@ -43,75 +43,55 @@
 
   <div class="container">
 
-    <h2>Quick Start</h2>
+    <h2>Status Snapshot (June 2025)</h2>
     <div class="card">
-      <h3>Base URL</h3>
-      <p><code>https://api.regimealpha.com/v1/</code></p>
-      <h3>Authentication</h3>
-      <p>Send an <code>Authorization: Bearer &lt;API_KEY&gt;</code> header with every request. Keys are provisioned in the dashboard (Pro &amp; Institutional tiers).</p>
+      <p>• Internal JSON endpoints power the demo UI, but <strong>no external keys are issued yet</strong>.<br>
+         • Public API keys + rate‑limiting gateway will launch alongside the AWS migration (target Q3 2025).</p>
     </div>
 
-    <h2>Endpoints</h2>
+    <h2>Planned Base URL & Authentication</h2>
+    <div class="card">
+      <p><strong>Planned URL</strong>: <code>https://api.regimealpha.com/v1/</code><br>
+         <strong>Auth</strong>: Bearer tokens issued per workspace. First 90‑day beta keys go out to Institutional design‑partners in <strong>October 2025</strong>.</p>
+    </div>
+
+    <h2>Draft Endpoint Specification</h2>
     <table>
-      <thead>
-        <tr><th>Endpoint</th><th>Method</th><th>Description</th></tr>
-      </thead>
+      <thead><tr><th>Endpoint</th><th>Method</th><th>Description</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><code>/regime/latest</code></td><td>GET</td><td>Returns the latest regime probabilities for a symbol or portfolio.</td></tr>
-        <tr><td><code>/regime/history</code></td><td>GET</td><td>Time‑series of regime probs between <code>start_date</code> &amp; <code>end_date</code>.</td></tr>
-        <tr><td><code>/portfolio/upload</code></td><td>POST</td><td>Upload positions CSV and receive UUID for overlay analysis.</td></tr>
-        <tr><td><code>/portfolio/{id}/overlay</code></td><td>GET</td><td>Regime exposure and back‑tested PnL for uploaded portfolio.</td></tr>
-        <tr><td><code>/alerts</code></td><td>POST</td><td>Create email / webhook alert when regime‑switch probability crosses threshold.</td></tr>
+        <tr><td><code>/regime/latest</code></td><td>GET</td><td>Latest regime probabilities for symbol or portfolio UUID.</td><td>Internal only</td></tr>
+        <tr><td><code>/regime/history</code></td><td>GET</td><td>Historical regime timeseries between dates.</td><td>Spec drafted</td></tr>
+        <tr><td><code>/portfolio/upload</code></td><td>POST</td><td>Upload positions CSV &amp; receive UUID.</td><td>Spec drafted</td></tr>
+        <tr><td><code>/portfolio/{id}/overlay</code></td><td>GET</td><td>Regime exposure &amp; back‑tested PnL.</td><td>Internal only</td></tr>
+        <tr><td><code>/alerts</code></td><td>POST</td><td>Create webhook alert on regime switch.</td><td>Q4 2025</td></tr>
       </tbody>
     </table>
 
-    <h2>Example — Latest Regime Call</h2>
+    <h2>Illustrative Response (internal dev)</h2>
+    <div class="card"><pre>{
+  "timestamp": "2025-06-30T15:00:00Z",
+  "symbol": "SPY",
+  "regimes": [
+    {"state": 0, "prob": 0.04},
+    {"state": 1, "prob": 0.12},
+    {"state": 2, "prob": 0.73},
+    {"state": 3, "prob": 0.11}
+  ],
+  "most_likely": 2
+}</pre></div>
+
+    <h2>Roadmap Milestones</h2>
     <div class="card">
-<pre>{
-  "request": {
-    "symbol": "SPY"
-  },
-  "response": {
-    "timestamp": "2025-06-30T15:00:00Z",
-    "regimes": [
-      {"state": 0, "prob": 0.04},
-      {"state": 1, "prob": 0.12},
-      {"state": 2, "prob": 0.73},
-      {"state": 3, "prob": 0.11}
-    ],
-    "most_likely": 2
-  }
-}</pre>
+      <ul class="policy">
+        <li><strong>Aug 2025</strong> — API Gateway in AWS, staging URL open to internal testers.</li>
+        <li><strong>Sep 2025</strong> — Beta keys for Institutional design‑partners.</li>
+        <li><strong>Oct 2025</strong> — Pro tier keys, 120 req/min limit.</li>
+        <li><strong>Q1 2026</strong> — GA release with alert webhooks &amp; official SLA.</li>
+      </ul>
     </div>
 
-    <h2>Rate Limits</h2>
-    <p style="color:var(--text-muted);font-size:.95rem;">Standard: 30 req/min • Pro: 120 req/min • Institutional: negotiable. Burst requests return <code>429 Too Many Requests</code>.</p>
-
-    <h2>Error Codes</h2>
-    <table>
-      <thead><tr><th>Status</th><th>Meaning</th><th>Typical Fix</th></tr></thead>
-      <tbody>
-        <tr><td>401</td><td>Unauthorized</td><td>Missing or invalid API key header.</td></tr>
-        <tr><td>404</td><td>Not Found</td><td>Wrong UUID or symbol.</td></tr>
-        <tr><td>429</td><td>Rate Limit</td><td>Throttle or upgrade tier.</td></tr>
-        <tr><td>500</td><td>Server Error</td><td>Contact support if repeated.</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Python Quick‑Start</h2>
-    <div class="card">
-<pre>import requests
-API_KEY = "YOUR_KEY"
-resp = requests.get(
-    "https://api.regimealpha.com/v1/regime/latest",
-    params={"symbol": "SPY"},
-    headers={"Authorization": f"Bearer {API_KEY}"}
-)
-print(resp.json())</pre>
-    </div>
-
-    <h2>Support</h2>
-    <p style="color:var(--text-muted);font-size:.95rem;">Questions? E‑mail <a href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a> or ping the #api‑support Slack channel (Pro/Inst tiers).</p>
+    <h2>Contact</h2>
+    <p style="color:var(--text-muted);font-size:.95rem;">Interested in early access? E‑mail <a href="mailto:bunster1227@gmail.com">bunster1227@gmail.com</a> with your use‑case.</p>
 
   </div>
 
