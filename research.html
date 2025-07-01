@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regime Alpha | Research Library</title>
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand-green:#16a34a;
+      --text-dark:#1f2937;
+      --text-muted:#64748b;
+      --border:#e2e8f0;
+      --radius:10px;
+    }
+    body{font-family:'Inter',sans-serif;margin:0;background:#ffffff;color:var(--text-dark);line-height:1.65;}
+    a{color:var(--brand-green);text-decoration:none;} a:hover{color:#128033;}
+    header{background:#f3f4f6;padding:2.2rem 1.2rem;text-align:center;}
+    header h1{font-size:2rem;font-weight:700;margin:0 0 .4rem;}
+    header p{color:var(--text-muted);margin:0;font-size:1rem;}
+    nav{display:flex;justify-content:center;gap:2rem;margin-top:1rem;}
+    nav a{font-weight:600;font-size:.95rem;color:var(--text-dark);} nav a:hover{color:var(--brand-green);}
+    .container{max-width:900px;margin:0 auto;padding:2.5rem 1.2rem;}
+    h2{font-size:1.4rem;font-weight:600;color:var(--brand-green);margin:2.5rem 0 1rem;}
+    .paper{border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1.2rem;background:#fafafa;}
+    .paper h3{font-size:1.1rem;margin:0 0 .35rem;font-weight:600;}
+    .paper p{font-size:.95rem;margin:0;color:var(--text-muted);}
+    footer{background:#0f172a;color:#d1d5db;text-align:center;padding:2rem 1rem;font-size:.85rem;margin-top:3rem;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Research Library</h1>
+    <p>Curated academic &amp; industry papers that underpin our regime-switching methodology.</p>
+    <nav>
+      <a href="index.html">← Back to Landing</a>
+      <a href="docs.html">Docs</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <h2>Foundational Models</h2>
+
+    <div class="paper">
+      <h3><a href="https://www.twosigma.com/articles/a-machine-learning-approach-to-regime-modeling/" target="_blank">
+        Two Sigma (2021) – “A Machine Learning Approach to Regime Modeling”</a></h3>
+      <p>Four-state GMM improves tail-risk forecasts for allocator portfolios.</p>
+    </div>
+
+    <div class="paper">
+      <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1028445" target="_blank">
+        Tu (2010) – “Is Regime Switching in Stock Returns Important in Portfolio Decisions?”</a></h3>
+      <p>Bayesian regime models deliver 2–10 % certainty-equivalent gains vs. single-regime benchmarks.</p>
+    </div>
+
+    <div class="paper">
+      <h3><a href="https://www2.imm.dtu.dk/pubdb/pubs/6808-full.html" target="_blank">
+        Nystrup (2014) – “Regime-Based Asset Allocation”</a></h3>
+      <p>Two-state Gaussian HMM drives a dynamic 60/40 strategy that outperforms fixed weights after costs.</p>
+    </div>
+
+    <h2>Recent Advances</h2>
+
+    <div class="paper">
+      <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4389763" target="_blank">
+        Aigner (2023) – “A Gaussian-Mixture Hidden Markov Model for the VIX”</a></h3>
+      <p>Four-state GMM-HMM cuts equity drawdowns and boosts risk-adjusted returns in volatility-timing tests.</p>
+    </div>
+
+    <div class="paper">
+      <h3><a href="https://arxiv.org/abs/2402.05272" target="_blank">
+        Shu et al. (2024) – “Downside Risk Reduction Using Regime-Switching Signals”</a></h3>
+      <p>Jump-penalised regime model halves max drawdown versus both HMM-guided and buy-&-hold strategies.</p>
+    </div>
+
+  </div>
+
+  <footer>&copy; 2025 Regime Labs LLC – All rights reserved</footer>
+</body>
+</html>
