@@ -64,7 +64,21 @@
     <details>
       <summary>Bayesian Gaussian Mixture Model (BGMM)</summary>
       <div class="inner">
-        <p>Places Dirichlet priors on weights and Normal‑Inverse‑Wishart priors on component parameters, enabling automatic complexity control and posterior uncertainty.</p>
+        <p>The Bayesian GMM treats mixture weights and component parameters as random variables, integrating out uncertainty instead of fitting single point estimates.  We place Dirichlet priors over the weights and Normal‑Inverse‑Wishart priors over each component&rsquo;s mean and covariance:</p>
+        \[
+          \pi \sim \mathrm{Dir}\big(\alpha_1,\ldots,\alpha_K\big), \quad
+          \mu_k,\Sigma_k \;\sim\; \mathcal{NIW}\!\big(\mu_0,\kappa_0,\nu_0,W_0\big)
+        \]
+        where \(\mathcal{NIW}\) denotes the normal–inverse‑Wishart distribution on \((\mu_k,\Sigma_k)\).  The hyper‑parameters \(\alpha_j\) can be equal (symmetric Dirichlet) or express prior beliefs about state frequencies.
+        <p>Observations are assigned to mixture components via latent variables \(z_t\):</p>
+        \[
+          z_t \sim \mathrm{Categorical}(\pi),\quad y_t \mid z_t=k \sim \mathcal{N}(\mu_k,\Sigma_k).
+        \]
+        <p>Posterior inference proceeds by sampling latent assignments and updating cluster sufficient statistics.  Under conjugate priors, the mixing weights have a closed‑form posterior</p>
+        \[
+          \pi \mid \mathbf{z} \sim \mathrm{Dir}\big(\alpha_1 + n_1,\ldots,\alpha_K + n_K\big),
+        \]
+        where \(n_k\) counts how many observations are currently assigned to component \(k\).  Integrating out \(\pi\) leads to the Chinese Restaurant Process representation used in Dirichlet Process mixture models, enabling the number of regimes to grow with the data.  We implement collapsed Gibbs sampling and variational Bayes inference which automatically infers the effective number of market regimes and quantifies posterior uncertainty over parameters.</p>
       </div>
     </details>
 
@@ -75,6 +89,21 @@
         \[
           \mathbb{P}(z_t=j \mid z_{t-1}=i)=A_{ij},\quad y_t \mid z_t=k \sim \mathcal{N}(\mu_k,\Sigma_k)
         \]
+      </div>
+    </details>
+
+    <details>
+      <summary>Sticky Hidden Markov Model (Sticky‑HMM)</summary>
+      <div class="inner">
+        <p>A sticky‑HMM biases the Markov chain toward self‑transitions to encourage persistent regimes.  In the hierarchical Dirichlet process HMM (HDP‑HMM) framework, state transition probabilities \(A_i\) for each previous state \(i\) are drawn from a Dirichlet distribution.  To induce stickiness, we add a self‑transition concentration \(\kappa\) to the diagonal of the base measure so that</p>
+        \[
+          A_i \;\sim\; \mathrm{Dir}\big(\alpha\beta_1,\ldots,\alpha\beta_{i-1},\alpha\beta_i+\kappa,\alpha\beta_{i+1},\ldots\big),
+        \]
+        where \(\beta\) is a global probability measure over states (the Griffiths–Engen–McCloskey distribution).  For finite HMMs this reduces to modifying a given transition matrix \(A\) by adding a stickiness bias on the diagonal:
+        \[
+          \tilde{A}_{ij} \;\propto\; A_{ij} + \kappa\, \mathbf{1}_{\{i=j\}}.
+        \]
+        <p>This stickiness term increases the probability of remaining in the current state, leading to more realistic regime durations observed in financial time series.  In our code the stickiness parameter appears as an additional concentration on the diagonal when sampling rows of the transition matrix, i.e. <code>Dirichlet(alpha + kappa * I)</code>.  Choosing \(\kappa\) appropriately balances persistence against responsiveness and is critical for capturing regime dwell times.</p>
       </div>
     </details>
 
